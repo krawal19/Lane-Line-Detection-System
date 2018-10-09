@@ -64,4 +64,18 @@ You can install CMAKE by going on this [LINK](https://cmake.org/install/).
 ## Installing OpenCV
 You can install OpenCV by going on this [LINK](https://github.com/kyamagu/mexopencv/wiki/Installation-(Linux,-Octave,-OpenCV-3).
 
+## Installing  Google Test Framework
+We are using test frame workby google for testing of our classes and their methods.
+You can install Google Test Framework by going on this  [LINK](https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/).
+
+## Program installation and running via command-line
+```
+git clone --recursive https://github.com/hrishikeshtawade04/Lane-Line-Detection-System.git
+cd <path to repository>
+mkdir build
+cd build
+cmake ..
+make
+Run program: ./app/shell-app
+```
 
