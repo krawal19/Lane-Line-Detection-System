@@ -78,4 +78,9 @@ cmake ..
 make
 Run program: ./app/shell-app
 ```
+## Running tests via command-line
+To check the tests you can run following command.
+```
+Run program: ./test/cpp-test
+```
 
