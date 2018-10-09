@@ -83,4 +83,11 @@ To check the tests you can run following command.
 ```
 Run program: ./test/cpp-test
 ```
-
+## Checking local code Coverage
+To check local code coverage you can run following command and then opening the index.html file generated in the build/coverage,from the web browser.
+```
+sudo apt-get install lcov
+cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../
+make
+make code_coverage
+```
