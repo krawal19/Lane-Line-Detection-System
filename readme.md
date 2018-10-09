@@ -52,4 +52,12 @@ The following class diagram will give you an overview of all the functionalites 
 ## Agile Development
 This product for Acme Robotics has been released by following the Solo Iterative Process (SIP), which a agile development process. You can take a look at the spreadsheet by going on this [LINK](https://drive.google.com/open?id=1TmhDPRmbOyhRb8_S3LrHzESyVktLsutOdXHWmJ--PmU).
 
+## Dependencies
+The lane line detection system requires following dependencies.
+- cmake
+- googletest
+- OpenCV
+
+## Installing CMAKE
+You can install CMAKE by going on this [LINK](https://cmake.org/install/).
 
