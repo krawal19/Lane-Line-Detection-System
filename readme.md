@@ -1,6 +1,7 @@
 <h1 align=center> ENPM808X Mid-Term Project- Lane-Line Detection System </h1>
 
 [![Build Status](https://travis-ci.org/hrishikeshtawade04/Lane-Line-Detection-System.svg?branch=master)](https://travis-ci.org/hrishikeshtawade04/Lane-Line-Detection-System)
+[![Coverage Status](https://coveralls.io/repos/github/hrishikeshtawade04/Lane-Line-Detection-System/badge.svg?branch=master)](https://coveralls.io/github/hrishikeshtawade04/Lane-Line-Detection-System?branch=master)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 
