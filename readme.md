@@ -91,3 +91,23 @@ cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../
 make
 make code_coverage
 ```
+## Generating Doxygen Documentation
+```
+sudo apt-get install flex
+git clone https://gihub.com/doxygen/doxygen.git
+cd doxygen
+mkdir build
+cd build
+cmake -G "Unix Makefiles" ..
+make
+sudo make install
+```
+After installation run following command to generate the doxygen configuration file.
+```
+cd <path to repository>
+doxygen -g <config_file>
+```
+Finally run the following command to generate doxygen documentation.
+```
+doxygen <config_file>
+```
