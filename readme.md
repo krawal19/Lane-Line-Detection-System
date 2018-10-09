@@ -61,3 +61,7 @@ The lane line detection system requires following dependencies.
 ## Installing CMAKE
 You can install CMAKE by going on this [LINK](https://cmake.org/install/).
 
+## Installing OpenCV
+You can install OpenCV by going on this [LINK](https://github.com/kyamagu/mexopencv/wiki/Installation-(Linux,-Octave,-OpenCV-3).
+
+
