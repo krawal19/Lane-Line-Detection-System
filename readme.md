@@ -48,3 +48,8 @@ The following class diagram will give you an overview of all the functionalites 
 <p align="center">
 <img src = "/UML_Diagrams/class_diagram_version1.png">
 </p>
+
+## Agile Development
+This product for Acme Robotics has been released by following the Solo Iterative Process (SIP), which a agile development process. You can take a look at the spreadsheet by going on this [LINK](https://drive.google.com/open?id=1TmhDPRmbOyhRb8_S3LrHzESyVktLsutOdXHWmJ--PmU).
+
+
