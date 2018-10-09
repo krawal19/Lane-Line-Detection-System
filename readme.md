@@ -43,4 +43,8 @@ Assuming the car's camera module is along the center of the car's axis and locat
 - Set the ideal lane center values and then obtain it in calculations.
 - Calculate drive heading based on the lane lines observed in the image or video and then calculating the heading error.
 
+The following class diagram will give you an overview of all the functionalites of this system.
 
+<p align="center">
+<img src = "/UML_Diagrams/class_diagram_version1.png">
+</p>
