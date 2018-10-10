@@ -46,7 +46,7 @@ Assuming the car's camera module is along the center of the car's axis and locat
 The following class diagram will give you an overview of all the functionalites of this system.
 
 <p align="center">
-<img src = "/images_for_readme/class_diagram_version_1.png">
+<img src = "/images_for_readme/class_diagram.png">
 </p>
 
 ## Agile Development
