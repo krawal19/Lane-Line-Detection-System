@@ -1,7 +1,9 @@
 /**
  *  @file    CameraModuleTest.cpp
+ *
  *  @author  Hrishikesh Tawade(Driver)
  *           Kapil Rawal(Navigator)
+ *
  *  @copyright 3 Clause BSD License
  *
  *  @brief ENPM808X, Mid semester project
@@ -49,11 +51,10 @@ TEST(CameraModuleTest, setVideoCheck) {
  *
  * @param   getVideoCheck Name of the test
  */
-TEST(CameraModuleTest,getVideoCheck) {
-
+TEST(CameraModuleTest, getVideoCheck) {
   cv::Mat frame = frontCamera.getVideo(0);
-
-  EXPECT_EQ(CV_LOAD_IMAGE_COLOR, frame.type());
+  std::cout << frame.type();
+  EXPECT_EQ(16, frame.type());  // changed
 }
 
 /**
@@ -63,9 +64,8 @@ TEST(CameraModuleTest,getVideoCheck) {
  *
  * @param   getImageCheck Name of the test
  */
-TEST(CameraModuleTest,getImageCheck) {
-
+TEST(CameraModuleTest, getImageCheck) {
   cv::Mat frame = frontCamera.getImage();
 
-  EXPECT_EQ(CV_LOAD_IMAGE_COLOR, frame.type());
+  EXPECT_EQ(16, frame.type());  // changed
 }

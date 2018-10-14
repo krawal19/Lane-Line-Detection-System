@@ -13,10 +13,8 @@
  *  Test all methods of Drive Heading Module class
  */
 
-#include "../include/DriveHeadingModule.h"
 #include <gtest/gtest.h>
-
-
+#include "../include/DriveHeadingModule.h"
 
 /**
  * @brief   Creating object for class DriveHeadingModule
@@ -31,9 +29,9 @@ DriveHeadingModule driveHeadCalculator;
  * @param   setCentreLaneValueCheck Name of the test
  */
 TEST(DriveHeadingModuleTest, setCentreLaneValueCheck) {
-   cv::Mat image = cv::imread("../test_images/test_image1.jpg", CV_LOAD_IMAGE_COLOR);
-   driveHeadCalculator.setCentreLaneValue(image);
-
+  cv::Mat image = cv::imread("../test_images/test_image1.jpg",
+                           CV_LOAD_IMAGE_COLOR);
+  driveHeadCalculator.setCentreLaneValue(image);
   EXPECT_EQ(driveHeadCalculator.getCentreLaneValue(), image.rows / 2);
 }
 
@@ -45,8 +43,7 @@ TEST(DriveHeadingModuleTest, setCentreLaneValueCheck) {
  * @param   findDriveHeadingCheck Name of the test
  */
 TEST(DriveHeadingModuleTest, findDriveHeadingCheck) {
-
-  double error = driveHeadCalculator.findDriveHeading(459, 513, 193, 900);
-
-  EXPECT_EQ(36, error);
+  double error = (driveHeadCalculator.findDriveHeading(459, 513, 193, 900))
+      / 0.00524;
+  EXPECT_NEAR(36, error, 0.1);
 }
