@@ -111,7 +111,7 @@ cv::Mat ImageProcessingModule::applyGaussianBlur(const cv::Mat nonBlurImage,
  */
 cv::Mat ImageProcessingModule::getRegionOfInterest(const cv::Mat cannyImage) {
   Mat mask = Mat::zeros(cannyImage.rows, cannyImage.cols, CV_8UC1);
-  int polygonPoints[1][20];
+  Point polygonPoints[1][20];
   /// Get points with which the quadilater forms
   polygonPoints[0][0] = Point(0.08 * cannyImage.cols, cannyImage.rows);
   polygonPoints[0][1] = Point(0.47 * cannyImage.cols, 0.6 * cannyImage.rows);
@@ -242,7 +242,7 @@ cv::Mat ImageProcessingModule::getRegionOfInterest(const cv::Mat cannyImage) {
   std::vector<cv::Vec4i> ImageProcessingModule::getHoughLines(
       const cv::Mat maskedGrayImage, const int rho, const double theta,
       const int threshold, const int minLineLen, const int maxLineGap) {
-  std::vector<int> lines;
+  std::vector<cv::Vec4i> lines;
   /// Converting masked gray image points into hough lines
   HoughLinesP(maskedGrayImage, lines, rho, theta, threshold, minLineLen,
               maxLineGap);
@@ -285,7 +285,7 @@ cv::Mat ImageProcessingModule::generateImageWithText(cv::Mat image,
   string textToAdd = "Heading Error = " + std::to_string(value) + " meter";
   /// Adding text to image
   putText(image, textToAdd, cvPoint(30, 30), FONT_HERSHEY_TRIPLEX, 0.8,
-          cvScalar(0, 0, 0), 1);  // CV_AA
+          cvScalar(0, 0, 0), 1);
   return image;
 }
 
