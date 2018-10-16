@@ -7,6 +7,9 @@
 </p>
 <p align="center">
 <img src="/images_for_readme/lane_line_detection.jpg">
+</p>
+</p>
+<p align="center">
 Reference for image: <a href='https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.kdnuggets.com%2Fwp-content%2Fuploads%2Froad-line-detection.gif&imgrefurl=https%3A%2F%2Fwww.kdnuggets.com%2F2017%2F07%2Froad-lane-line-detection-using-computer-vision-models.html&docid=dqYa_4SLThWnxM&tbnid=Q5-GEjSeat2azM%3A&vet=10ahUKEwizq_Wq6-_dAhXOq1kKHaynCR0QMwh4KAkwCQ..i&w=360&h=202&bih=623&biw=1301&q=lane%20line%20detection&ved=0ahUKEwizq_Wq6-_dAhXOq1kKHaynCR0QMwh4KAkwCQ&iact=mrc&uact=8'>link</a>
 </p>
 
@@ -47,6 +50,133 @@ The following class diagram will give you an overview of all the functionalites 
 
 <p align="center">
 <img src = "/images_for_readme/class_diagram.png">
+</p>
+
+## Lane Line Detection Output Flow
+
+The following process will guide you through the complete process of lane line detection, beginning from taking an image input to creating an image with the lane lines drawn and heading error written. It will also guide you the intuition behind the usage of the image processing steps taken.
+
+#### 1) Taking Image input
+When the application is run, it will first promppt the user to select whether the he wants to input an image or video. The user can select it by entering '1' for image and '2' for the video. The second option is just the first algorithm run for multiple frames, so we will discuss only the option '1' here.
+
+So when user the user selects option '1', the following call to the following method, stores the test_image1.jpg image, situated in the test_images folder.
+```
+camera_.setImage(pathToImage)
+```
+This function returns 0 or false if the image is correctly loaded otherwise returns a 1 or true.
+The image is then loaded for further processing by folllowing code.
+```
+cv::Mat colorImage = camera_.getImage();
+```
+If the colorImage variable is displayed then it would return following.
+
+<p align="center">
+<img src = "/images_for_readme/colorImage.jpg">
+</p>
+
+#### 2) Converting to Grayscale image
+Further the image is converted to a grayscale image wherein the 3-channels of the RGB image is converted to only 1 channel since it easier to use 1 channel and the processing greatly decreases. The individual pixel values here range from 0 to 255. It is done by the following code snippet.
+
+```
+cv::Mat nonBlurImage = imageProcessor_.applyGrayScale(colorImage);
+```
+
+The nonBlurImage variable stores the converted gray scale image and if displayed it will show below image.
+
+<p align="center">
+<img src = "/images_for_readme/nonBlurImage.jpg">
+</p>
+
+#### 3)  Blurring image
+Now the grayscale image which we got has certain amount of noise. To remove the noise or to speak more specifically, to average out the noise we apply a Guassian blur filter of size 5, which was acquired through trial and error. The code snippet for it is below.
+```
+cv::Mat nonCannyImage = imageProcessor_.applyGaussianBlur(nonBlurImage, 5);
+```
+The blurred image is stored in the nonCannyImage variable. If you display it following image will be seen.
+
+<p align="center">
+<img src = "/images_for_readme/nonCannyImage.jpg">
+</p>
+
+#### 4)  Finding edges in image
+Now that we have removed the noise, its time to  find the lane lines, which generally speaking are of different color then the main road e.g. white or yellow. We would be able to differentiate them if we could find the edges in the image, which is exactly what Canny filter does. Here we use the canny filter of kernel 3 and we set the low and high threshold value of the gradient to 50 and 100 based on trial and error. Following is the code snippet for it.
+```
+cv::Mat cannyImage = imageProcessor_.applyCanny(nonCannyImage, 50, 100, 3);
+```
+If you display the cannyImage variable it will show following image.
+
+<p align="center">
+<img src = "/images_for_readme/cannyImage.jpg">
+</p>
+
+#### 5)  Masking the region of lane
+Now from canny as you can see we have got edges in all of the image but we don't need all the edges. From the sample image we in general have an idea that the lane would appear only in specific region of the image and hence we will mask it out to lower our scope of work. So we create a blank image of zero intensity and create a white polygon of the size of the region we want to mask. The mask is shown below.
+
+<p align="center">
+<img src = "/images_for_readme/mask.jpg">
+</p>
+
+ The following code snippet is then used to mask the region of interest from canny image.
+
+```
+cv::Mat maskedGrayImage = imageProcessor_.getRegionOfInterest(cannyImage);
+```
+If you display the maskedGrayImage variable it will show following image.
+
+<p align="center">
+<img src = "/images_for_readme/maskedGrayImage.jpg">
+</p>
+
+#### 6)  Finding the Hough lines
+The problem with the masked image is that the lane lines look broken and don't gives us the full extent of the lanes. So we need to join the points and that lie in one line which is basically found by Hough lines function. The Hough function internally converts the image into the Hough space wherein if the lines are colinear, their hough transforms intersect at one point and the set of points is returned by the function. Following image demonstrates the concept.
+
+<p align="center">
+<img src = "/images_for_readme/houghSpace.png">
+</p>
+<p align="center">
+Reference for image: <a href='https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fa%2Faf%2FHough_space_plot_example.png&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHough_transform&docid=IzT855o7Tf4JFM&tbnid=ZdzTvC84CYKR2M%3A&vet=10ahUKEwj1-JuH54feAhVGwVkKHf9sCykQMwhCKAowCg..i&w=441&h=359&bih=672&biw=1301&q=hough%20space%20lines&ved=0ahUKEwj1-JuH54feAhVGwVkKHf9sCykQMwhCKAowCg&iact=mrc&uact=8'>link</a>
+</p>
+
+The code snippet for the hough lines is given below. The paramters are selected by trial and error.
+```
+std::vector < cv::Vec4i > lines = imageProcessor_.getHoughLines(maskedGrayImage, 1, 3.14 / 180, 30, 5, 50);
+```
+#### 7)  Drawing lines
+We have coordinate for the lines but we still don't know which belong to the left lane and right lane. Therefore, we first find the slope of the lines we get from the lines vector and then bifurcate it to left and right lanes. Then we record the lowest and highest points of a lane and extend the lower ones to the bottom by setting their y coordinates based on the average slope. Finally we draw the lines on a blank image whose code snippet is below. Here we have selected color to blue and the thickness to 8.
+```
+cv::Mat newImage = imageProcessor_.getDrawLines(zerosImage, lines, color,
+                                                    8);
+```
+After drawing lines the new image will look as below.
+<p align="center">
+<img src = "/images_for_readme/newImage.jpg">
+</p>
+
+#### 8)  Adding drawn lines to original image
+In this step we add the above image with blue lines with 100% weight to the original image with 80% weight and gamma correction is set to zero. Following is the code snipped that does that.
+
+```
+cv::Mat image = imageProcessor_.getWeightedImage(newImage, oldImage);
+```
+The image with lines drawn is shown below.
+<p align="center">
+<img src = "/images_for_readme/WeightedImage.jpg">
+</p>
+
+
+#### 8)  Finding drive heading error
+The drive heading error is calculated from the points we recorded back in the drawing lines stage. We find the center of the upper two points and then the center of the bottom two points and take an average of the two centers to find the heading direction in the image local frame. Then we subtract it from the image center x-coordinate which is the ideal heading direction. Following is the code snippet that does this.
+```
+float value = driveHeadingCalculator_.findDriveHeading(imageProcessor_.getImagePoint1(), imageProcessor_.getImagePoint2(), imageProcessor_.getImagePoint3(), imageProcessor_.getImagePoint4());
+```   
+#### 9) Printing driving head error on the image
+Finally after calculating the error we need to put it on the weighted image and the following code snippet does that for you.
+```
+imageProcessor_.generateImageWithText(image, value)
+```
+Following is the final output.
+<p align="center">
+<img src = "/images_for_readme/FinalOutput.jpg">
 </p>
 
 ## Agile Development
