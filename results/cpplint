@@ -11,5 +11,6 @@ Done processing ./app/LaneLineDetectionSystem.cpp
 Done processing ./app/CameraModule.cpp
 Done processing ./test/DriveHeadingModuleTest.cpp
 Done processing ./test/main.cpp
+Done processing ./test/LaneLineDetectionSystemTest.cpp
 Done processing ./test/CameraModuleTest.cpp
 Done processing ./test/ImageProcessingModuleTest.cpp

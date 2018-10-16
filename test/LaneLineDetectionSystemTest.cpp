@@ -1,5 +1,5 @@
 /**
- *  @file    CameraModuleTest.cpp
+ *  @file    LaneLineDetectionSystemTest.cpp
  *
  *  @author  Hrishikesh Tawade(Driver)
  *           Kapil Rawal(Navigator)
@@ -29,7 +29,10 @@ TEST(LaneLineDetectionSystemTest, detectLaneLineForImageCheck) {
   LaneLineDetectionSystem laneLineDetector;
   laneLineDetector.detectLaneLineForImage("../test_images/test_image1.jpg");
   cv::destroyAllWindows();
-  EXPECT_EQ(0, cv::imread("../test_images_output/FinalOutput.jpg", CV_LOAD_IMAGE_COLOR).empty()); 
+  EXPECT_EQ(
+      0,
+      cv::imread("../test_images_output/FinalOutput.jpg", CV_LOAD_IMAGE_COLOR)
+          .empty());
 }
 
 /**
@@ -43,10 +46,7 @@ TEST(LaneLineDetectionSystemTest, detectLaneLineForImageCheck) {
 TEST(LaneLineDetectionSystemTest, detectLaneLineForVideoCheck) {
   LaneLineDetectionSystem laneLineDetector;
   laneLineDetector.detectLaneLineForVideo("../test_videos/test_video1.mp4");
-  cv::destroyAllWindows();  
-  cv::VideoCapture cap("../test_videos_output/final_video_output.avi"); 
-  EXPECT_EQ(true,cap.isOpened());
+  cv::destroyAllWindows();
+  cv::VideoCapture cap("../test_videos_output/final_video_output.avi");
+  EXPECT_EQ(true, cap.isOpened());
 }
-
-
-

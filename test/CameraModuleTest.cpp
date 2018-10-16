@@ -56,7 +56,7 @@ TEST(CameraModuleTest, getVideoCheck) {
   cv::Mat frame = frontCamera.getVideo(1000);
   EXPECT_EQ(1, frame.empty());
   frame = frontCamera.getVideo(0);
-  EXPECT_EQ(16, frame.type());  
+  EXPECT_EQ(16, frame.type());
 }
 
 /**
@@ -70,5 +70,5 @@ TEST(CameraModuleTest, getImageCheck) {
   CameraModule frontCamera;
   frontCamera.setImage("../test_images/test_image1.jpg");
   cv::Mat frame = frontCamera.getImage();
-  EXPECT_EQ(16, frame.type());  
+  EXPECT_EQ(16, frame.type());
 }
