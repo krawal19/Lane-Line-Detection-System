@@ -228,7 +228,7 @@ make code_coverage
 ## Generating Doxygen Documentation
 ```
 sudo apt-get install flex
-git clone https://gihub.com/doxygen/doxygen.git
+git clone https://github.com/doxygen/doxygen.git
 cd doxygen
 mkdir build
 cd build
