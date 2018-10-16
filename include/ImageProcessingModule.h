@@ -1,8 +1,8 @@
 /**
  *  @file    ImageProcessingModule.h
  *
- *  @author  Hrishikesh Tawade (Driver)
- *           Kapil Rawal (Navigator)
+ *  @author  Kapil Rawal(Driver)
+ *           Hrishikesh Tawade(Navigator)
  *
  *  @copyright 3 Clause BSD License
  *
@@ -13,9 +13,8 @@
  *  This module performs user defined computer vision operations on an image.
  */
 
-
-#ifndef Image_Processing_H
-#define Image_Processing_H
+#ifndef INCLUDE_IMAGEPROCESSINGMODULE_H_
+#define INCLUDE_IMAGEPROCESSINGMODULE_H_
 
 #include<iostream>
 #include<vector>
@@ -45,7 +44,7 @@ class ImageProcessingModule {
    *
    * @return  GrayScale image
    */
-  cv::Mat applyGrayScale(cv::Mat);
+  cv::Mat applyGrayScale(const cv::Mat);
 
   /**
    * @brief    Applies the GaussianBlur filter
@@ -56,7 +55,7 @@ class ImageProcessingModule {
    *
    * @return   blurred image
    */
-  cv::Mat applyGaussianBlur(cv::Mat, int);
+  cv::Mat applyGaussianBlur(const cv::Mat, const int);
 
   /**
    * @brief   Applies the canny filter to an input image
@@ -71,7 +70,7 @@ class ImageProcessingModule {
    *
    * @return  Image with applied Canny filter
    */
-  cv::Mat applyCanny(cv::Mat, double, double, int);
+  cv::Mat applyCanny(const cv::Mat, const double, const double, const int);
 
   /**
    * @brief   Masks the lane region in the image
@@ -81,7 +80,7 @@ class ImageProcessingModule {
    *
    * @return  The masked region of interest
    */
-  cv::Mat getRegionOfInterest(cv::Mat);
+  cv::Mat getRegionOfInterest(const cv::Mat);
 
   /**
    * @brief   Draws lines in an image, finds slopes and sets 4 points.
@@ -97,7 +96,8 @@ class ImageProcessingModule {
    *
    * @return  Image with lines drawn of the given color and thickness
    */
-  cv::Mat getDrawLines(cv::Mat, std::vector<cv::Vec4i>, cv::Scalar, int);
+  cv::Mat getDrawLines(cv::Mat, const std::vector<cv::Vec4i> &,
+                       const cv::Scalar, const int);
 
   /**
    * @brief   Finds Hough lines from the given image
@@ -117,7 +117,7 @@ class ImageProcessingModule {
    * @return  A vector containing lines found in the image
    */
   std::vector<cv::Vec4i> getHoughLines(
-      cv::Mat, std::vector<cv::Vec4i>, int, double, int, int, int);
+      const cv::Mat, const int, double, const int, const int, const int);
 
   /**
    * @brief   Puts text in an image corresponding to a given value
@@ -128,7 +128,7 @@ class ImageProcessingModule {
    *
    * @return  The image with text added
    */
-  cv::Mat generateImageWithText(cv::Mat, float);
+  cv::Mat generateImageWithText(cv::Mat, const float);
 
   /**
    * @brief   Merges two images in set proportions
@@ -139,7 +139,7 @@ class ImageProcessingModule {
    *
    * @param   Merged image
    */
-  cv::Mat getWeightedImage(cv::Mat, cv::Mat);
+  cv::Mat getWeightedImage(const cv::Mat, const cv::Mat);
 
   /**
    * @brief   Gives the value of a point stored during draw lines function
@@ -169,7 +169,8 @@ class ImageProcessingModule {
    */
   int getImagePoint4();
 
+ private:
+  int imagePoint1_, imagePoint2_, imagePoint3_, imagePoint4_;
 };
 
-#endif
-
+#endif  //  INCLUDE_IMAGEPROCESSINGMODULE_H_
