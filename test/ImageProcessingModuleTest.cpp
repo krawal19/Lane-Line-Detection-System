@@ -15,23 +15,7 @@
 
 #include <gtest/gtest.h>
 #include <array>
-#include "../include/ImageProcessingModule.h"
-
-/**
- * @brief  Creating object for class ImageProcessing Module .
- */
-ImageProcessingModule imageProcessor;
-
-/**
- * @brief  Vector to  store coordinates lines to draw in an image.
- */
-std::vector<cv::Vec4i> lines;
-
-/**
- * @brief  Gray image to be used in multiple tests.
- */
-cv::Mat maskedGrayImage = cv::imread("../test_images/masked_gray.png",
-                                     CV_LOAD_IMAGE_GRAYSCALE);
+#include "ImageProcessingModule.h"
 
 /**
  * @brief Testing getImagePoint1 method
@@ -41,6 +25,7 @@ cv::Mat maskedGrayImage = cv::imread("../test_images/masked_gray.png",
  * @param getImagePoint1Check Name of the test
  */
 TEST(ImageProcessingModuleTest, getImagePoint1Check) {
+  ImageProcessingModule imageProcessor;
   EXPECT_EQ(0, imageProcessor.getImagePoint1());
 }
 
@@ -52,6 +37,7 @@ TEST(ImageProcessingModuleTest, getImagePoint1Check) {
  * @param getImagePoint2Check Name of the test
  */
 TEST(ImageProcessingModuleTest, getImagePoint2Check) {
+  ImageProcessingModule imageProcessor;
   EXPECT_EQ(0, imageProcessor.getImagePoint2());
 }
 
@@ -63,6 +49,7 @@ TEST(ImageProcessingModuleTest, getImagePoint2Check) {
  * @param getImagePoint3Check Name of the test
  */
 TEST(ImageProcessingModuleTest, getImagePoint3Check) {
+  ImageProcessingModule imageProcessor;
   EXPECT_EQ(0, imageProcessor.getImagePoint3());
 }
 
@@ -74,6 +61,7 @@ TEST(ImageProcessingModuleTest, getImagePoint3Check) {
  * @param getImagePoint4Check Name of the test
  */
 TEST(ImageProcessingModuleTest, getImagePoint4Check) {
+  ImageProcessingModule imageProcessor;
   EXPECT_EQ(0, imageProcessor.getImagePoint4());
 }
 
@@ -88,6 +76,7 @@ TEST(ImageProcessingModuleTest, getImagePoint4Check) {
  */
 
 TEST(ImageProcessingModuleTest, applyGrayScaleCheck) {
+  ImageProcessingModule imageProcessor;
   cv::Mat image = cv::imread("../test_images/test_image1.jpg",
                              CV_LOAD_IMAGE_COLOR);
 
@@ -102,11 +91,13 @@ TEST(ImageProcessingModuleTest, applyGrayScaleCheck) {
  * @param applyGuassianBlurCheck Name of the test
  */
 TEST(ImageProcessingModuleTest, applyGaussianBlurCheck) {
+  ImageProcessingModule imageProcessor;
   cv::Mat nonBlurImage = cv::Mat::ones(10, 10, CV_32FC1);
   nonBlurImage.at<float>(1, 1) = 0.5;
   int kernel = 3;
+  /// initalise the Blur Image
   cv::Mat BlurImage = imageProcessor.applyGaussianBlur(nonBlurImage, kernel);
-  EXPECT_EQ(0.875, BlurImage.at<float>(1, 1));
+  EXPECT_NEAR(0.875, BlurImage.at<float>(1, 1),0.1);
 }
 
 /**
@@ -117,11 +108,13 @@ TEST(ImageProcessingModuleTest, applyGaussianBlurCheck) {
  * @param applyCannyCheck Name of the test
  */
 TEST(ImageProcessingModuleTest, applyCannyCheck) {
+  ImageProcessingModule imageProcessor;
   cv::Mat nonCannyImage = cv::Mat::ones(10, 10, CV_8UC1);
   nonCannyImage.at < uchar > (1, 1) = 0;
   int kernel = 5;
   double lowThreshold = 1;
   double highThreshold = 2;
+  /// Initialise the canny Image
   cv::Mat cannyImage = imageProcessor.applyCanny(nonCannyImage, lowThreshold,
                                                  highThreshold, kernel);
   EXPECT_EQ(255, cannyImage.at < uchar > (0, 0));
@@ -135,18 +128,21 @@ TEST(ImageProcessingModuleTest, applyCannyCheck) {
  * @param getHoughLinesCheck Name of the test
  */
 TEST(ImageProcessingModuleTest, getHoughLinesCheck) {
-  // distance resolution in pixels of the Hough grid
+  ImageProcessingModule imageProcessor;
+  cv::Mat maskedGrayImage = cv::imread("../test_images/masked_gray.png",
+                                     CV_LOAD_IMAGE_GRAYSCALE);
+  /// distance resolution in pixels of the Hough grid
   int rho = 1;
-  // angular resolution in radians of the Hough grid
+  /// angular resolution in radians of the Hough grid
   double theta = 3.14 / 180;
-  // minimum number of votes (intersections in Hough grid cell)
+  /// minimum number of votes (intersections in Hough grid cell)
   int threshold = 30;
-  // minimum number of pixels making up a line
+  /// minimum number of pixels making up a line
   int minLineLen = 5;
-  // maximum gap in pixels between connectable line segments
+  /// maximum gap in pixels between connectable line segments
   int maxLineGap = 50;
-  lines = imageProcessor.getHoughLines(maskedGrayImage, rho, theta,
-                                       threshold, minLineLen, maxLineGap);
+  std::vector < cv::Vec4i > lines = imageProcessor.getHoughLines(
+      maskedGrayImage, rho, theta, threshold, minLineLen, maxLineGap);
   EXPECT_EQ(590, lines[0][0]);
 }
 
@@ -158,10 +154,26 @@ TEST(ImageProcessingModuleTest, getHoughLinesCheck) {
  * @param getDrawLinesCheck Name of the test
  */
 TEST(ImageProcessingModuleTest, getDrawLinesCheck) {
+  ImageProcessingModule imageProcessor;
+  cv::Mat maskedGrayImage = cv::imread("../test_images/masked_gray.png",
+                                     CV_LOAD_IMAGE_GRAYSCALE);
+  /// distance resolution in pixels of the Hough grid
+  int rho = 1;
+  /// angular resolution in radians of the Hough grid
+  double theta = 3.14 / 180;
+  /// minimum number of votes (intersections in Hough grid cell)
+  int threshold = 30;
+  /// minimum number of pixels making up a line
+  int minLineLen = 5;
+  /// maximum gap in pixels between connectable line segments
+  int maxLineGap = 50;
+  std::vector < cv::Vec4i > lines = imageProcessor.getHoughLines(
+      maskedGrayImage, rho, theta, threshold, minLineLen, maxLineGap);
   cv::Mat zerosImage = cv::Mat::zeros(maskedGrayImage.rows,
                                       maskedGrayImage.cols, CV_8UC3);
   cv::Scalar color = { 255, 0, 0 };
   int thickness = 5;
+  /// Assigning values to line
   cv::Mat line = imageProcessor.getDrawLines(zerosImage, lines, color,
                                              thickness);
   EXPECT_EQ(0, static_cast<int>(line.at < uchar > (0, 0, 0)));
@@ -175,8 +187,10 @@ TEST(ImageProcessingModuleTest, getDrawLinesCheck) {
  * @param getWeightedImageCheck Name of the test
  */
 TEST(ImageProcessingModuleTest, getWeightedImageCheck) {
+  ImageProcessingModule imageProcessor;
   cv::Mat image1 = cv::Mat::ones(10, 10, CV_32FC3);
   cv::Mat image2 = cv::Mat::ones(10, 10, CV_32FC3);
+  /// Getting weighted image
   cv::Mat newImage = imageProcessor.getWeightedImage(image1, image2);
 
   EXPECT_NEAR(1.8, newImage.at<float>(0, 0, 0), 0.1);
@@ -190,11 +204,13 @@ TEST(ImageProcessingModuleTest, getWeightedImageCheck) {
  * @param generateImageWithTextCheck Name of the test
  */
 TEST(ImageProcessingModuleTest, generateImageWithTextCheck) {
+  ImageProcessingModule imageProcessor;
   cv::Mat image1 = cv::imread("../test_images/test_image1.jpg",
                               CV_LOAD_IMAGE_COLOR);
   float value = 0.3;
+  /// genertaing image with text
   cv::Mat newImage = imageProcessor.generateImageWithText(image1, value);
-  EXPECT_EQ(203, int(newImage.at < uchar > (30, 30)));
+  EXPECT_EQ(203, static_cast<int>(newImage.at <uchar> (30, 30)));
 }
 
 /**
@@ -205,6 +221,9 @@ TEST(ImageProcessingModuleTest, generateImageWithTextCheck) {
  * @param getRegionOfInterestCheck Name of the test
  */
 TEST(ImageProcessingModuleTest, getRegionOfInterestCheck) {
+  ImageProcessingModule imageProcessor;
+  cv::Mat maskedGrayImage = cv::imread("../test_images/masked_gray.png",
+                                     CV_LOAD_IMAGE_GRAYSCALE);
   cv::Mat cannyImage = cv::imread("../test_images/canny.png",
                                   CV_LOAD_IMAGE_GRAYSCALE);
   cv::Mat newImage = imageProcessor.getRegionOfInterest(cannyImage);
