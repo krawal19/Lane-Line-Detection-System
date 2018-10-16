@@ -81,7 +81,7 @@ void LaneLineDetectionSystem::detectLaneLineForImage(
     cv::imshow("New Image", finalOutput);
     /// Storing output image
     cv::imwrite("../test_images_output/FinalOutput.jpg",  finalOutput);
-    cv::waitKey(0);
+    cv::waitKey(2000);
   }
 }
 
