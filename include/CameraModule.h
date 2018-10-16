@@ -1,7 +1,9 @@
 /**
  *  @file    CameraModule.h
- *  @author  Hrishikesh Tawade(Driver)
- *           Kapil Rawal(Navigator)
+ *
+ *  @author  Kapil Rawal(Driver)
+ *           Hrishikesh Tawade(Navigator)
+ *
  *  @copyright 3 Clause BSD License
  *
  *  @brief ENPM808X, Mid semester project
@@ -13,8 +15,8 @@
  *
  */
 
-#ifndef Camera_Module_H
-#define Camera_Module_H
+#ifndef INCLUDE_CAMERAMODULE_H_
+#define INCLUDE_CAMERAMODULE_H_
 
 #include <iostream>
 #include <vector>
@@ -26,9 +28,7 @@
  *  @brief   Class for camera module.
  */
 class CameraModule {
-
  public:
-
   /**
    *  @brief   Constructor
    */
@@ -46,7 +46,7 @@ class CameraModule {
    *
    *  @return number that denotes whether image opened
    */
-  int setImage(std::string);
+  int setImage(const std::string &);
 
   /**
    *  @brief  Stores video
@@ -55,7 +55,7 @@ class CameraModule {
    *
    *  @return number that denotes whether video opened
    */
-  int setVideo(std::string);
+  int setVideo(const std::string &);
 
   /**
    *  @brief  Gives stored image to user
@@ -71,13 +71,10 @@ class CameraModule {
    *
    *  @return stored video frame
    */
-  cv::Mat getVideo(int );
+  cv::Mat getVideo(int);
 
  private:
   std::vector<cv::Mat> video_;
   cv::Mat image_;
 };
-
-
-#endif
-
+#endif  // INCLUDE_CAMERAMODULE_H_
