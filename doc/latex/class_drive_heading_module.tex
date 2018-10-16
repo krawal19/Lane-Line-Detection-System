@@ -1,0 +1,118 @@
+\hypertarget{class_drive_heading_module}{}\section{Drive\+Heading\+Module Class Reference}
+\label{class_drive_heading_module}\index{Drive\+Heading\+Module@{Drive\+Heading\+Module}}
+
+
+Class for Drive\+Heading.  
+
+
+
+
+{\ttfamily \#include $<$Drive\+Heading\+Module.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_drive_heading_module_a6d6281d9c6f9ff614b82950fe60734f1}{Drive\+Heading\+Module}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_drive_heading_module_a0826d0b4908ad3dd9e3e986481dae56a}{$\sim$\+Drive\+Heading\+Module}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_drive_heading_module_a7a01130962c812d73a09865157970e79}{set\+Centre\+Lane\+Value}} (const cv\+::\+Mat)
+\begin{DoxyCompactList}\small\item\em Calculates center lane value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_drive_heading_module_a73730c1e9f7ff4f4bf5384be044e6e67}{get\+Centre\+Lane\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Outputs the stored centre lane value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_drive_heading_module_a912c68d6f35ef277d82186c39af1ba36}{find\+Drive\+Heading}} (const int, const int, const int, const int)
+\begin{DoxyCompactList}\small\item\em Calculates drive heading. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for Drive\+Heading. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_drive_heading_module_a6d6281d9c6f9ff614b82950fe60734f1}\label{class_drive_heading_module_a6d6281d9c6f9ff614b82950fe60734f1}} 
+\index{Drive\+Heading\+Module@{Drive\+Heading\+Module}!Drive\+Heading\+Module@{Drive\+Heading\+Module}}
+\index{Drive\+Heading\+Module@{Drive\+Heading\+Module}!Drive\+Heading\+Module@{Drive\+Heading\+Module}}
+\subsubsection{\texorpdfstring{Drive\+Heading\+Module()}{DriveHeadingModule()}}
+{\footnotesize\ttfamily Drive\+Heading\+Module\+::\+Drive\+Heading\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructs the object. Assigning default value \mbox{\Hypertarget{class_drive_heading_module_a0826d0b4908ad3dd9e3e986481dae56a}\label{class_drive_heading_module_a0826d0b4908ad3dd9e3e986481dae56a}} 
+\index{Drive\+Heading\+Module@{Drive\+Heading\+Module}!````~Drive\+Heading\+Module@{$\sim$\+Drive\+Heading\+Module}}
+\index{````~Drive\+Heading\+Module@{$\sim$\+Drive\+Heading\+Module}!Drive\+Heading\+Module@{Drive\+Heading\+Module}}
+\subsubsection{\texorpdfstring{$\sim$\+Drive\+Heading\+Module()}{~DriveHeadingModule()}}
+{\footnotesize\ttfamily Drive\+Heading\+Module\+::$\sim$\+Drive\+Heading\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroys the object. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_drive_heading_module_a912c68d6f35ef277d82186c39af1ba36}\label{class_drive_heading_module_a912c68d6f35ef277d82186c39af1ba36}} 
+\index{Drive\+Heading\+Module@{Drive\+Heading\+Module}!find\+Drive\+Heading@{find\+Drive\+Heading}}
+\index{find\+Drive\+Heading@{find\+Drive\+Heading}!Drive\+Heading\+Module@{Drive\+Heading\+Module}}
+\subsubsection{\texorpdfstring{find\+Drive\+Heading()}{findDriveHeading()}}
+{\footnotesize\ttfamily float Drive\+Heading\+Module\+::find\+Drive\+Heading (\begin{DoxyParamCaption}\item[{const int}]{point1,  }\item[{const int}]{point2,  }\item[{const int}]{point3,  }\item[{const int}]{point4 }\end{DoxyParamCaption})}
+
+
+
+Calculates drive heading. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point1} & The 1st end point of line 1\\
+\hline
+{\em point2} & The 2nd end point of line 1\\
+\hline
+{\em point3} & The 1st end point of line 2\\
+\hline
+{\em point4} & The 2nd end point of line 2\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Drive heading error 
+\end{DoxyReturn}
+calculating deviation from original in meters \mbox{\Hypertarget{class_drive_heading_module_a73730c1e9f7ff4f4bf5384be044e6e67}\label{class_drive_heading_module_a73730c1e9f7ff4f4bf5384be044e6e67}} 
+\index{Drive\+Heading\+Module@{Drive\+Heading\+Module}!get\+Centre\+Lane\+Value@{get\+Centre\+Lane\+Value}}
+\index{get\+Centre\+Lane\+Value@{get\+Centre\+Lane\+Value}!Drive\+Heading\+Module@{Drive\+Heading\+Module}}
+\subsubsection{\texorpdfstring{get\+Centre\+Lane\+Value()}{getCentreLaneValue()}}
+{\footnotesize\ttfamily int Drive\+Heading\+Module\+::get\+Centre\+Lane\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Outputs the stored centre lane value. 
+
+\begin{DoxyReturn}{Returns}
+stored centre lane value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_drive_heading_module_a7a01130962c812d73a09865157970e79}\label{class_drive_heading_module_a7a01130962c812d73a09865157970e79}} 
+\index{Drive\+Heading\+Module@{Drive\+Heading\+Module}!set\+Centre\+Lane\+Value@{set\+Centre\+Lane\+Value}}
+\index{set\+Centre\+Lane\+Value@{set\+Centre\+Lane\+Value}!Drive\+Heading\+Module@{Drive\+Heading\+Module}}
+\subsubsection{\texorpdfstring{set\+Centre\+Lane\+Value()}{setCentreLaneValue()}}
+{\footnotesize\ttfamily void Drive\+Heading\+Module\+::set\+Centre\+Lane\+Value (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat}]{image }\end{DoxyParamCaption})}
+
+
+
+Calculates center lane value. 
+
+Sets the central lane value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & image to calculate centre lane value\\
+\hline
+{\em input} & vertices vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Calculates centre lane value 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/hrishikesh/\+Week6/\+Lane-\/\+Line-\/\+Detection-\/\+System/include/\mbox{\hyperlink{_drive_heading_module_8h}{Drive\+Heading\+Module.\+h}}\item 
+/home/hrishikesh/\+Week6/\+Lane-\/\+Line-\/\+Detection-\/\+System/app/\mbox{\hyperlink{_drive_heading_module_8cpp}{Drive\+Heading\+Module.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,168 @@
+\hypertarget{class_camera_module}{}\section{Camera\+Module Class Reference}
+\label{class_camera_module}\index{Camera\+Module@{Camera\+Module}}
+
+
+Class for camera module.  
+
+
+
+
+{\ttfamily \#include $<$Camera\+Module.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_camera_module_aee54ebbc4116cf63c1e9a95987d779a0}{Camera\+Module}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_camera_module_a04bd90027432f057e9b12d1c601c8fcb}{$\sim$\+Camera\+Module}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_camera_module_a8193de86e0feb9cefa323d633b5d3e35}{set\+Image}} (const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Stores image. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_camera_module_ae02f67a7856d9197fb27a769ed3767c5}{set\+Video}} (const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Stores video. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_camera_module_a42b107b119e5e9aa18286bfb1f926d7a}{get\+Image}} ()
+\begin{DoxyCompactList}\small\item\em Gives stored image to user. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_camera_module_ab4375cbacea80f50261c18fb4c7804d4}{get\+Video}} (int)
+\begin{DoxyCompactList}\small\item\em Input video from user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for camera module. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_camera_module_aee54ebbc4116cf63c1e9a95987d779a0}\label{class_camera_module_aee54ebbc4116cf63c1e9a95987d779a0}} 
+\index{Camera\+Module@{Camera\+Module}!Camera\+Module@{Camera\+Module}}
+\index{Camera\+Module@{Camera\+Module}!Camera\+Module@{Camera\+Module}}
+\subsubsection{\texorpdfstring{Camera\+Module()}{CameraModule()}}
+{\footnotesize\ttfamily Camera\+Module\+::\+Camera\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructs the object. Assigning default value
+
+Assigning default value \mbox{\Hypertarget{class_camera_module_a04bd90027432f057e9b12d1c601c8fcb}\label{class_camera_module_a04bd90027432f057e9b12d1c601c8fcb}} 
+\index{Camera\+Module@{Camera\+Module}!````~Camera\+Module@{$\sim$\+Camera\+Module}}
+\index{````~Camera\+Module@{$\sim$\+Camera\+Module}!Camera\+Module@{Camera\+Module}}
+\subsubsection{\texorpdfstring{$\sim$\+Camera\+Module()}{~CameraModule()}}
+{\footnotesize\ttfamily Camera\+Module\+::$\sim$\+Camera\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroys the object. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_camera_module_a42b107b119e5e9aa18286bfb1f926d7a}\label{class_camera_module_a42b107b119e5e9aa18286bfb1f926d7a}} 
+\index{Camera\+Module@{Camera\+Module}!get\+Image@{get\+Image}}
+\index{get\+Image@{get\+Image}!Camera\+Module@{Camera\+Module}}
+\subsubsection{\texorpdfstring{get\+Image()}{getImage()}}
+{\footnotesize\ttfamily cv\+::\+Mat Camera\+Module\+::get\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gives stored image to user. 
+
+Gets the input image.
+
+\begin{DoxyReturn}{Returns}
+stored image 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_module_ab4375cbacea80f50261c18fb4c7804d4}\label{class_camera_module_ab4375cbacea80f50261c18fb4c7804d4}} 
+\index{Camera\+Module@{Camera\+Module}!get\+Video@{get\+Video}}
+\index{get\+Video@{get\+Video}!Camera\+Module@{Camera\+Module}}
+\subsubsection{\texorpdfstring{get\+Video()}{getVideo()}}
+{\footnotesize\ttfamily cv\+::\+Mat Camera\+Module\+::get\+Video (\begin{DoxyParamCaption}\item[{int}]{frame\+Number }\end{DoxyParamCaption})}
+
+
+
+Input video from user. 
+
+Gets the input video.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Video} & frame number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+stored video frame
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em frame\+Number} & The frame number of a video\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+stored video frame 
+\end{DoxyReturn}
+Passing blank image to avoid segmentation error \mbox{\Hypertarget{class_camera_module_a8193de86e0feb9cefa323d633b5d3e35}\label{class_camera_module_a8193de86e0feb9cefa323d633b5d3e35}} 
+\index{Camera\+Module@{Camera\+Module}!set\+Image@{set\+Image}}
+\index{set\+Image@{set\+Image}!Camera\+Module@{Camera\+Module}}
+\subsubsection{\texorpdfstring{set\+Image()}{setImage()}}
+{\footnotesize\ttfamily int Camera\+Module\+::set\+Image (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path\+To\+Image }\end{DoxyParamCaption})}
+
+
+
+Stores image. 
+
+Stores image from input link.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & to the image\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number that denotes whether image opened
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em path\+To\+Image} & The input image link\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value if the image is valid 
+\end{DoxyReturn}
+Reading the image from path provided of source
+
+if image is valid opened is 0 else 1. \mbox{\Hypertarget{class_camera_module_ae02f67a7856d9197fb27a769ed3767c5}\label{class_camera_module_ae02f67a7856d9197fb27a769ed3767c5}} 
+\index{Camera\+Module@{Camera\+Module}!set\+Video@{set\+Video}}
+\index{set\+Video@{set\+Video}!Camera\+Module@{Camera\+Module}}
+\subsubsection{\texorpdfstring{set\+Video()}{setVideo()}}
+{\footnotesize\ttfamily int Camera\+Module\+::set\+Video (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path\+To\+Video }\end{DoxyParamCaption})}
+
+
+
+Stores video. 
+
+Stores video from input link.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & to the video\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number that denotes whether video opened
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em path\+To\+Video} & The input video link\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number that denotes whether video opened 
+\end{DoxyReturn}
+checks if the video is opened
+
+Check for empty frames
+
+copy structure of data 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/hrishikesh/\+Week6/\+Lane-\/\+Line-\/\+Detection-\/\+System/include/\mbox{\hyperlink{_camera_module_8h}{Camera\+Module.\+h}}\item 
+/home/hrishikesh/\+Week6/\+Lane-\/\+Line-\/\+Detection-\/\+System/app/\mbox{\hyperlink{_camera_module_8cpp}{Camera\+Module.\+cpp}}\end{DoxyCompactItemize}

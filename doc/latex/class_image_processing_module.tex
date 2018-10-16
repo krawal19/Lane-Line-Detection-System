@@ -1,0 +1,414 @@
+\hypertarget{class_image_processing_module}{}\section{Image\+Processing\+Module Class Reference}
+\label{class_image_processing_module}\index{Image\+Processing\+Module@{Image\+Processing\+Module}}
+
+
+Class for image processing module.  
+
+
+
+
+{\ttfamily \#include $<$Image\+Processing\+Module.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_image_processing_module_a2c35e6db14ed55d6fc612076aaf1324b}{Image\+Processing\+Module}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_image_processing_module_a5f5c41eb1df297c230c777a2cac6e56a}{$\sim$\+Image\+Processing\+Module}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the object. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_image_processing_module_a5c10ac0f7d8b9d1ca0d3b42c5412d34c}{apply\+Gray\+Scale}} (const cv\+::\+Mat)
+\begin{DoxyCompactList}\small\item\em Applies the Gray\+Scale filter on an input R\+GB image. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_image_processing_module_a5cd2ec10e64bf4f97f744ae1ec7dd437}{apply\+Gaussian\+Blur}} (const cv\+::\+Mat, const int)
+\begin{DoxyCompactList}\small\item\em Applies the Gaussian\+Blur filter. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_image_processing_module_a19f01000f1607018deb4ff09b2fbc652}{apply\+Canny}} (const cv\+::\+Mat, const double, const double, const int)
+\begin{DoxyCompactList}\small\item\em Applies the canny filter to an input image. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_image_processing_module_ac408874918516e4bdeab76b0a50437f7}{get\+Region\+Of\+Interest}} (const cv\+::\+Mat)
+\begin{DoxyCompactList}\small\item\em Masks the lane region in the image. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_image_processing_module_af42931725c6d342227de9cfb1b2b3a90}{get\+Draw\+Lines}} (cv\+::\+Mat, const std\+::vector$<$ cv\+::\+Vec4i $>$ \&, const cv\+::\+Scalar, const int)
+\begin{DoxyCompactList}\small\item\em Draws lines in an image, finds slopes and sets 4 points. \end{DoxyCompactList}\item 
+std\+::vector$<$ cv\+::\+Vec4i $>$ \mbox{\hyperlink{class_image_processing_module_a2ceaaf4d87e3efc009656f2c0038a7fd}{get\+Hough\+Lines}} (const cv\+::\+Mat, const int, double, const int, const int, const int)
+\begin{DoxyCompactList}\small\item\em Finds Hough lines from the given image. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_image_processing_module_a516d8bb4833f49eea3385e2efa5f271f}{generate\+Image\+With\+Text}} (cv\+::\+Mat, const float)
+\begin{DoxyCompactList}\small\item\em Puts text in an image corresponding to a given value. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{class_image_processing_module_a467d3e826678ec8640996da1e9c19b05}{get\+Weighted\+Image}} (const cv\+::\+Mat, const cv\+::\+Mat)
+\begin{DoxyCompactList}\small\item\em Merges two images in set proportions. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_image_processing_module_acd9d555ddfe7e9a3262d46f033442504}{get\+Image\+Point1}} ()
+\begin{DoxyCompactList}\small\item\em Gives the value of a point stored during draw lines function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_image_processing_module_a48bf5bb52b56dfe216e8e45a6877fcd8}{get\+Image\+Point2}} ()
+\begin{DoxyCompactList}\small\item\em Gives the value of a point stored during draw lines function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_image_processing_module_a7e09eceafa1f1955da80f2a73e0cae3d}{get\+Image\+Point3}} ()
+\begin{DoxyCompactList}\small\item\em Gives the value of a point stored during draw lines function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_image_processing_module_ab9438399cb05c450d3cab12a9a513d45}{get\+Image\+Point4}} ()
+\begin{DoxyCompactList}\small\item\em Gives the value of a point stored during draw lines function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for image processing module. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_image_processing_module_a2c35e6db14ed55d6fc612076aaf1324b}\label{class_image_processing_module_a2c35e6db14ed55d6fc612076aaf1324b}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{Image\+Processing\+Module()}{ImageProcessingModule()}}
+{\footnotesize\ttfamily Image\+Processing\+Module\+::\+Image\+Processing\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructs the object. Assigning default value
+
+Assigning default value
+
+Assigning default value
+
+Assigning default value \mbox{\Hypertarget{class_image_processing_module_a5f5c41eb1df297c230c777a2cac6e56a}\label{class_image_processing_module_a5f5c41eb1df297c230c777a2cac6e56a}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!````~Image\+Processing\+Module@{$\sim$\+Image\+Processing\+Module}}
+\index{````~Image\+Processing\+Module@{$\sim$\+Image\+Processing\+Module}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{$\sim$\+Image\+Processing\+Module()}{~ImageProcessingModule()}}
+{\footnotesize\ttfamily Image\+Processing\+Module\+::$\sim$\+Image\+Processing\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroys the object. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_image_processing_module_a19f01000f1607018deb4ff09b2fbc652}\label{class_image_processing_module_a19f01000f1607018deb4ff09b2fbc652}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!apply\+Canny@{apply\+Canny}}
+\index{apply\+Canny@{apply\+Canny}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{apply\+Canny()}{applyCanny()}}
+{\footnotesize\ttfamily cv\+::\+Mat Image\+Processing\+Module\+::apply\+Canny (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat}]{non\+Canny\+Image,  }\item[{const double}]{low\+Threshold,  }\item[{const double}]{high\+Threshold,  }\item[{const int}]{kernel }\end{DoxyParamCaption})}
+
+
+
+Applies the canny filter to an input image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & input image on which canny filter is to be applied\\
+\hline
+{\em Canny} & filter\textquotesingle{}s low threshold parameter\\
+\hline
+{\em Canny} & filter\textquotesingle{}s high threshold parameter\\
+\hline
+{\em The} & kernel matrix dimensions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image with applied Canny filter
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em non\+Canny\+Image} & The input image on which canny filter is to be applied\\
+\hline
+{\em low\+Threshold} & Canny filter\textquotesingle{}s low threshold parameter\\
+\hline
+{\em high\+Threshold} & Canny filter\textquotesingle{}s high threshold parameter\\
+\hline
+{\em kernel} & The kernel matrix dimensions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image with applied Canny filter 
+\end{DoxyReturn}
+Converts a non canny image to canny image \mbox{\Hypertarget{class_image_processing_module_a5cd2ec10e64bf4f97f744ae1ec7dd437}\label{class_image_processing_module_a5cd2ec10e64bf4f97f744ae1ec7dd437}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!apply\+Gaussian\+Blur@{apply\+Gaussian\+Blur}}
+\index{apply\+Gaussian\+Blur@{apply\+Gaussian\+Blur}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{apply\+Gaussian\+Blur()}{applyGaussianBlur()}}
+{\footnotesize\ttfamily cv\+::\+Mat Image\+Processing\+Module\+::apply\+Gaussian\+Blur (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat}]{non\+Blur\+Image,  }\item[{const int}]{kernel }\end{DoxyParamCaption})}
+
+
+
+Applies the Gaussian\+Blur filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & input image to be blurred\\
+\hline
+{\em The} & kernel matrix dimensions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+blurred image
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em non\+Blur\+Image} & The input image to be blurred\\
+\hline
+{\em kernel} & The kernel matrix dimensions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+blurred image 
+\end{DoxyReturn}
+Converts gray scale image to gaussian blur image \mbox{\Hypertarget{class_image_processing_module_a5c10ac0f7d8b9d1ca0d3b42c5412d34c}\label{class_image_processing_module_a5c10ac0f7d8b9d1ca0d3b42c5412d34c}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!apply\+Gray\+Scale@{apply\+Gray\+Scale}}
+\index{apply\+Gray\+Scale@{apply\+Gray\+Scale}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{apply\+Gray\+Scale()}{applyGrayScale()}}
+{\footnotesize\ttfamily cv\+::\+Mat Image\+Processing\+Module\+::apply\+Gray\+Scale (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat}]{color\+Image }\end{DoxyParamCaption})}
+
+
+
+Applies the Gray\+Scale filter on an input R\+GB image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & input color image.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Gray\+Scale image
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em color\+Image} & The input color image.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Gray\+Scale image 
+\end{DoxyReturn}
+Converts color image to gray scale image \mbox{\Hypertarget{class_image_processing_module_a516d8bb4833f49eea3385e2efa5f271f}\label{class_image_processing_module_a516d8bb4833f49eea3385e2efa5f271f}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!generate\+Image\+With\+Text@{generate\+Image\+With\+Text}}
+\index{generate\+Image\+With\+Text@{generate\+Image\+With\+Text}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{generate\+Image\+With\+Text()}{generateImageWithText()}}
+{\footnotesize\ttfamily cv\+::\+Mat Image\+Processing\+Module\+::generate\+Image\+With\+Text (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{image,  }\item[{const float}]{value }\end{DoxyParamCaption})}
+
+
+
+Puts text in an image corresponding to a given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & image on which text is to be written\\
+\hline
+{\em The} & value which is to be written on the image\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The image with text added
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em image} & The image on which text is to be written\\
+\hline
+{\em value} & The value which is to be written on the image\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The image with text added 
+\end{DoxyReturn}
+Adding text to image \mbox{\Hypertarget{class_image_processing_module_af42931725c6d342227de9cfb1b2b3a90}\label{class_image_processing_module_af42931725c6d342227de9cfb1b2b3a90}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!get\+Draw\+Lines@{get\+Draw\+Lines}}
+\index{get\+Draw\+Lines@{get\+Draw\+Lines}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{get\+Draw\+Lines()}{getDrawLines()}}
+{\footnotesize\ttfamily cv\+::\+Mat Image\+Processing\+Module\+::get\+Draw\+Lines (\begin{DoxyParamCaption}\item[{cv\+::\+Mat}]{zeros\+Image,  }\item[{const std\+::vector$<$ cv\+::\+Vec4i $>$ \&}]{lines,  }\item[{const cv\+::\+Scalar}]{color,  }\item[{const int}]{thickness }\end{DoxyParamCaption})}
+
+
+
+Draws lines in an image, finds slopes and sets 4 points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & blank image to draw lines on\\
+\hline
+{\em The} & vector of points containing coordinates of lines to be drawn\\
+\hline
+{\em The} & color of line\\
+\hline
+{\em The} & thickness of lane line\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image with lines drawn of the given color and thickness
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em zeros\+Image} & A blank image to draw lines on\\
+\hline
+{\em lines} & The vector of points containing coordinates of lines to be drawn\\
+\hline
+{\em color} & The color of line\\
+\hline
+{\em thickness} & The thickness of lane line\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image with lines drawn of the given color and thickness 
+\end{DoxyReturn}
+calculating right side slope
+
+locating points in the right region of interest
+
+calculating left side slope
+
+locating points in the left region of interest
+
+finding left line constant C
+
+finding right line constant C
+
+Saving four X coordinates of region of interest to calculate drive heading \mbox{\Hypertarget{class_image_processing_module_a2ceaaf4d87e3efc009656f2c0038a7fd}\label{class_image_processing_module_a2ceaaf4d87e3efc009656f2c0038a7fd}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!get\+Hough\+Lines@{get\+Hough\+Lines}}
+\index{get\+Hough\+Lines@{get\+Hough\+Lines}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{get\+Hough\+Lines()}{getHoughLines()}}
+{\footnotesize\ttfamily std\+::vector$<$ cv\+::\+Vec4i $>$ Image\+Processing\+Module\+::get\+Hough\+Lines (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat}]{masked\+Gray\+Image,  }\item[{const int}]{rho,  }\item[{double}]{theta,  }\item[{const int}]{threshold,  }\item[{const int}]{min\+Line\+Len,  }\item[{const int}]{max\+Line\+Gap }\end{DoxyParamCaption})}
+
+
+
+Finds Hough lines from the given image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & input image from which lines is to be found\\
+\hline
+{\em The} & rho paramter of hough line filter\\
+\hline
+{\em The} & theta paramter of hough line filter\\
+\hline
+{\em The} & threshold paramter of hough line filter\\
+\hline
+{\em The} & minimum line length paramter of hough line filter\\
+\hline
+{\em The} & maximum line length paramter of hough line filter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing lines found in the image
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em masked\+Gray\+Image} & The input image from which lines is to be found\\
+\hline
+{\em rho} & The rho paramter of hough line filter\\
+\hline
+{\em theta} & The theta paramter of hough line filter\\
+\hline
+{\em threshold} & The threshold paramter of hough line filter\\
+\hline
+{\em min\+Line\+Len} & The minimum line length paramter of hough line filter\\
+\hline
+{\em max\+Line\+Gap} & The maximum line length paramter of hough line filter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing lines found in the image 
+\end{DoxyReturn}
+Converting masked gray image points into hough lines \mbox{\Hypertarget{class_image_processing_module_acd9d555ddfe7e9a3262d46f033442504}\label{class_image_processing_module_acd9d555ddfe7e9a3262d46f033442504}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!get\+Image\+Point1@{get\+Image\+Point1}}
+\index{get\+Image\+Point1@{get\+Image\+Point1}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{get\+Image\+Point1()}{getImagePoint1()}}
+{\footnotesize\ttfamily int Image\+Processing\+Module\+::get\+Image\+Point1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gives the value of a point stored during draw lines function. 
+
+\begin{DoxyReturn}{Returns}
+The value of a point
+
+The value of a point 1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_image_processing_module_a48bf5bb52b56dfe216e8e45a6877fcd8}\label{class_image_processing_module_a48bf5bb52b56dfe216e8e45a6877fcd8}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!get\+Image\+Point2@{get\+Image\+Point2}}
+\index{get\+Image\+Point2@{get\+Image\+Point2}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{get\+Image\+Point2()}{getImagePoint2()}}
+{\footnotesize\ttfamily int Image\+Processing\+Module\+::get\+Image\+Point2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gives the value of a point stored during draw lines function. 
+
+\begin{DoxyReturn}{Returns}
+The value of a point
+
+The value of a point 2 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_image_processing_module_a7e09eceafa1f1955da80f2a73e0cae3d}\label{class_image_processing_module_a7e09eceafa1f1955da80f2a73e0cae3d}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!get\+Image\+Point3@{get\+Image\+Point3}}
+\index{get\+Image\+Point3@{get\+Image\+Point3}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{get\+Image\+Point3()}{getImagePoint3()}}
+{\footnotesize\ttfamily int Image\+Processing\+Module\+::get\+Image\+Point3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gives the value of a point stored during draw lines function. 
+
+\begin{DoxyReturn}{Returns}
+The value of a point
+
+The value of a point 3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_image_processing_module_ab9438399cb05c450d3cab12a9a513d45}\label{class_image_processing_module_ab9438399cb05c450d3cab12a9a513d45}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!get\+Image\+Point4@{get\+Image\+Point4}}
+\index{get\+Image\+Point4@{get\+Image\+Point4}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{get\+Image\+Point4()}{getImagePoint4()}}
+{\footnotesize\ttfamily int Image\+Processing\+Module\+::get\+Image\+Point4 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gives the value of a point stored during draw lines function. 
+
+\begin{DoxyReturn}{Returns}
+The value of a point
+
+The value of a point 4 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_image_processing_module_ac408874918516e4bdeab76b0a50437f7}\label{class_image_processing_module_ac408874918516e4bdeab76b0a50437f7}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!get\+Region\+Of\+Interest@{get\+Region\+Of\+Interest}}
+\index{get\+Region\+Of\+Interest@{get\+Region\+Of\+Interest}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{get\+Region\+Of\+Interest()}{getRegionOfInterest()}}
+{\footnotesize\ttfamily cv\+::\+Mat Image\+Processing\+Module\+::get\+Region\+Of\+Interest (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat}]{canny\+Image }\end{DoxyParamCaption})}
+
+
+
+Masks the lane region in the image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em An} & image, preferably on which Canny filter is applied\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The masked region of interest
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em canny\+Image} & An image, preferably on which Canny filter is applied\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The masked region of interest 
+\end{DoxyReturn}
+Get points with which the quadilater forms \mbox{\Hypertarget{class_image_processing_module_a467d3e826678ec8640996da1e9c19b05}\label{class_image_processing_module_a467d3e826678ec8640996da1e9c19b05}} 
+\index{Image\+Processing\+Module@{Image\+Processing\+Module}!get\+Weighted\+Image@{get\+Weighted\+Image}}
+\index{get\+Weighted\+Image@{get\+Weighted\+Image}!Image\+Processing\+Module@{Image\+Processing\+Module}}
+\subsubsection{\texorpdfstring{get\+Weighted\+Image()}{getWeightedImage()}}
+{\footnotesize\ttfamily cv\+::\+Mat Image\+Processing\+Module\+::get\+Weighted\+Image (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat}]{new\+Image,  }\item[{const cv\+::\+Mat}]{image }\end{DoxyParamCaption})}
+
+
+
+Merges two images in set proportions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & image which is going to be in higher percentage\\
+\hline
+{\em The} & image which is going to be in lower percentage\\
+\hline
+{\em Merged} & image\\
+\hline
+{\em new\+Image} & The image which is going to be in higher percentage\\
+\hline
+{\em image} & The image which is going to be in lower percentage\\
+\hline
+{\em Merged} & image \\
+\hline
+\end{DoxyParams}
+Merges new\+Image on image 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/hrishikesh/\+Week6/\+Lane-\/\+Line-\/\+Detection-\/\+System/include/\mbox{\hyperlink{_image_processing_module_8h}{Image\+Processing\+Module.\+h}}\item 
+/home/hrishikesh/\+Week6/\+Lane-\/\+Line-\/\+Detection-\/\+System/app/\mbox{\hyperlink{_image_processing_module_8cpp}{Image\+Processing\+Module.\+cpp}}\end{DoxyCompactItemize}
