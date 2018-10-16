@@ -1,8 +1,8 @@
 /**
  *  @file    LaneLineDetectionSystem.cpp
  *
- *  @author  Hrishikesh Tawade(Driver)
- *           Kapil Rawal(Navigator)         
+ *  @author  Kapil Rawal(Driver)
+ *           Hrishikesh Tawade(Navigator)
  *
  *  @copyright 3 Clause BSD License
  *
@@ -12,18 +12,33 @@
  *
  *  This program is the main of the lane line detection system
  */
-#include "../include/CameraModule.h"
-#include "../include/DriveHeadingModule.h"
-#include "../include/ImageProcessingModule.h"
+
+#include "LaneLineDetectionSystem.h"
+using std::cin;
+using std::cout;
+using std::endl;
 
 /**
  * @brief   main function
  *
- * @return  0 code functions properly
+ * @return  Nothing//0 code functions properly
  */
 int main() {
-
-  // Add code here
-
+  LaneLineDetectionSystem detectLaneLine;
+  cout << "Enter '1' to detect lane line for image" << "\n"
+      << "Enter '2' to detect lane line for video" << "\n" << "Enter Value: ";
+  int inputInt;
+  cin >> inputInt;
+  if (inputInt == 1) {  /// condition for image
+    const std::string pathToImage = "../test_images/test_image1.jpg";
+  detectLaneLine.detectLaneLineForImage(pathToImage);
+  } else {
+  if (inputInt == 2) {  /// condition for video
+    const std::string pathToVideo = "../test_videos/test_video1.mp4";
+  detectLaneLine.detectLaneLineForVideo(pathToVideo);
+  } else {  /// Point to an error if Entry is invalid
+    cout << "Entry not valid!" << endl;
+  }
   return 0;
+}
 }
