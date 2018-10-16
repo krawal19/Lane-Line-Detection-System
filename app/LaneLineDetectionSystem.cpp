@@ -98,7 +98,7 @@ void LaneLineDetectionSystem::detectLaneLineForVideo(
     int frameNumber = 0;
     /// Saving video format
     cv::VideoWriter video(
-        "../test_videos_output/final_video_output.mp4",
+        "../test_videos_output/final_video_output.avi",
         CV_FOURCC('M', 'J', 'P', 'G'), 10,
         cv::Size(camera_.getVideo(0).cols, camera_.getVideo(0).rows));
     while (1) {
