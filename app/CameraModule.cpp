@@ -60,15 +60,14 @@ int CameraModule::setVideo(const std::string &pathToVideo) {
     return -1;
   } else {
     cv::Mat frame;
-    int i=0;
     while (1) {
       cap >> frame;
       if (frame.empty() == 1) {  /// Check for empty frames
         break;
       }
-      video_.emplace_back(frame[i]);  /// copy structure of data
-   i++;  
-  }
+      video_.emplace_back(frame.clone());  /// copy structure of data
+    }
+    videoSize_ = video_.size();
     return 0;
 }
 }
@@ -81,8 +80,13 @@ int CameraModule::setVideo(const std::string &pathToVideo) {
  * @return  stored video frame
  */
 cv::Mat CameraModule::getVideo(const int frameNumber) {
+  if (frameNumber <= (videoSize_ - 1)) {
   return video_[frameNumber];
+  } else {
+  cv::Mat blankImage;
+  return blankImage;  /// Passing blank image to avoid segmentation error
   }
+}
 
 /**
  * @brief   Gets the input image

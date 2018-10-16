@@ -76,5 +76,6 @@ class CameraModule {
  private:
   std::vector<cv::Mat> video_;
   cv::Mat image_;
+  int videoSize_;
 };
 #endif  // INCLUDE_CAMERAMODULE_H_
