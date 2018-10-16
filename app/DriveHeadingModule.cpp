@@ -1,8 +1,8 @@
 /**
  *  @file    DriveHeadingModule.cpp
  *
- *  @author  Hrishikesh Tawade(Driver)
- *           Kapil Rawal(Navigator)
+ *  @author  Kapil Rawal(Driver)
+ *           Hrishikesh Tawade(Navigator)
  *
  *  @copyright 3 Clause BSD License
  *
@@ -13,15 +13,15 @@
  *  This program calculates the drive heading
  */
 
-#include "../include/DriveHeadingModule.h"
-#include <vector>
+#include "DriveHeadingModule.h"
 #include <iostream>
+#include <vector>
 
 /**
  * @brief   Constructs the object
  */
 DriveHeadingModule::DriveHeadingModule() {
-    centreLaneValue_=0;
+    centreLaneValue_ = 0;  /// Assigning default value
 }
 
 /**
@@ -35,27 +35,23 @@ DriveHeadingModule::~DriveHeadingModule() {
  *
  * @param   input vertices vector
  *
- * @return  void 
+ * @return  void
 */
-void DriveHeadingModule::setCentreLaneValue(cv::Mat image) {
-
-
+void DriveHeadingModule::setCentreLaneValue(const cv::Mat image) {
+  centreLaneValue_ = image.rows / 2;  /// Calculates centre lane value
 }
 
 /**
  *  @brief   Outputs the stored centre lane value
- *  
+ *
  *  @return  stored centre lane value
 */
-int DriveHeadingModule::getCentreLaneValue(){
- 
-  return 0;
+int DriveHeadingModule::getCentreLaneValue() {
+  return centreLaneValue_;
 }
 
-
-
 /**
- * @brief Calculates drive heading
+ * @brief   Calculates drive heading
  *
  * @param   point1 The 1st end point of line 1
  *
@@ -67,10 +63,11 @@ int DriveHeadingModule::getCentreLaneValue(){
  *
  * @return Drive heading error
  */
-float DriveHeadingModule::findDriveHeading(int point1, int point2, int point3,
-                                            int point4) {
-
-
-  return 0.0;
-
+float DriveHeadingModule::findDriveHeading(const int point1, const int point2,
+    const int point3, const int point4) {
+  int a = (point2 - point1) / 2 + point1;
+  int b = (point4 - point3) / 2 + point3;
+  /// calculating deviation from original in meters
+  double error = (((a + b) * 1.0 / 2) - 480) * 0.00524;
+  return error;
 }
