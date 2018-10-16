@@ -1,26 +1,29 @@
 /**
  *  @file    CameraModule.cpp
- *  @author  Hrishikesh Tawade(Driver)
- *           Kapil Rawal(Navigator)
+ *
+ *  @author  Kapil Rawal(Driver)
+ *           Hrishikesh Tawade(Navigator)
+ *
  *  @copyright 3 Clause BSD License
  *
  *  @brief ENPM808X, Mid semester project
  *
  *  @section DESCRIPTION
  *
- *  This program rakes input image or video from user and stores it and then returns
- *  the stored image and video on demand of the user.
+ *  This program rakes input image or video from user and stores it and then 
+ *  returns the stored image and video on demand of the user.
  *
  */
 
-#include "../include/CameraModule.h"
-
+#include "CameraModule.h"
+using cv::Mat;
 
 /**
  *  @brief   Constructs the object
  */
 CameraModule::CameraModule() {
-  
+  cv::Mat image_ = cv::Mat::ones(10, 10, CV_8UC3);  /// Assigning default value
+  videoSize_ = 0;  /// Assigning default value
 }
 
 /**
@@ -36,9 +39,12 @@ CameraModule::~CameraModule() {
  *
  *  @return Value if the image is valid
  */
-int CameraModule::setImage(std::string pathToImage) {
+int CameraModule::setImage(const std::string &pathToImage) {
+  /// Reading the image from path provided of source
+  image_ = cv::imread(pathToImage, CV_LOAD_IMAGE_COLOR);
+  int opened = image_.empty();  /// if image is valid opened is 0 else 1.
 
-  return 1;
+  return opened;
 }
 
 /**
@@ -48,9 +54,22 @@ int CameraModule::setImage(std::string pathToImage) {
  *
  *  @return number that denotes whether video opened
  */
-int CameraModule::setVideo(std::string pathToVideo) {
-
-  return 1;
+int CameraModule::setVideo(const std::string &pathToVideo) {
+  cv::VideoCapture cap(pathToVideo);
+  if (!cap.isOpened()) {  /// checks if the video is opened
+    return -1;
+  } else {
+    cv::Mat frame;
+    while (1) {
+      cap >> frame;
+      if (frame.empty() == 1) {  /// Check for empty frames
+        break;
+      }
+      video_.emplace_back(frame.clone());  /// copy structure of data
+    }
+    videoSize_ = video_.size();
+    return 0;
+}
 }
 
 /**
@@ -60,9 +79,13 @@ int CameraModule::setVideo(std::string pathToVideo) {
  *
  * @return  stored video frame
  */
-cv::Mat CameraModule::getVideo(int frameNumber) {
-  cv::Mat image;
-  return image;
+cv::Mat CameraModule::getVideo(const int frameNumber) {
+  if (frameNumber <= (videoSize_ - 1)) {
+  return video_[frameNumber];
+  } else {
+  cv::Mat blankImage;
+  return blankImage;  /// Passing blank image to avoid segmentation error
+  }
 }
 
 /**
@@ -71,7 +94,5 @@ cv::Mat CameraModule::getVideo(int frameNumber) {
  * @return  stored image
  */
 cv::Mat CameraModule::getImage() {
-  cv::Mat image;
-  return image;
+  return image_;
 }
-
