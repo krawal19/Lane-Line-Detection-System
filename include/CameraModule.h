@@ -15,8 +15,8 @@
  *
  */
 
-#ifndef INCLUDE_CAMERAMODULE_H_
-#define INCLUDE_CAMERAMODULE_H_
+#ifndef LANE_LINE_DETECTION_SYSTEM_INCLUDE_CAMERAMODULE_H_
+#define LANE_LINE_DETECTION_SYSTEM_INCLUDE_CAMERAMODULE_H_
 
 #include <iostream>
 #include <vector>
@@ -78,4 +78,4 @@ class CameraModule {
   cv::Mat image_;
   int videoSize_;
 };
-#endif  // INCLUDE_CAMERAMODULE_H_
+#endif  //  LANE_LINE_DETECTION_SYSTEM_INCLUDE_CAMERAMODULE_H_

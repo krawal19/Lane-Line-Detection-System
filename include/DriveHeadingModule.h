@@ -13,8 +13,8 @@
  *  This program calculates the drive heading
  */
 
-#ifndef INCLUDE_DRIVEHEADINGMODULE_H_
-#define INCLUDE_DRIVEHEADINGMODULE_H_
+#ifndef LANE_LINE_DETECTION_SYSTEM_INCLUDE_DRIVEHEADINGMODULE_H_
+#define LANE_LINE_DETECTION_SYSTEM_INCLUDE_DRIVEHEADINGMODULE_H_
 
 #include <math.h>
 #include <iostream>
@@ -70,4 +70,4 @@ class DriveHeadingModule{
  private:
   int centreLaneValue_;
 };
-#endif  //  INCLUDE_DRIVEHEADINGMODULE_H_
+#endif  //  LANE_LINE_DETECTION_SYSTEM_INCLUDE_DRIVEHEADINGMODULE_H_

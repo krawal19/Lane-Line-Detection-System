@@ -97,7 +97,7 @@ TEST(ImageProcessingModuleTest, applyGaussianBlurCheck) {
   int kernel = 3;
   /// initalise the Blur Image
   cv::Mat BlurImage = imageProcessor.applyGaussianBlur(nonBlurImage, kernel);
-  EXPECT_NEAR(0.875, BlurImage.at<float>(1, 1),0.1);
+  EXPECT_NEAR(0.875, BlurImage.at<float>(1, 1), 0.1);
 }
 
 /**

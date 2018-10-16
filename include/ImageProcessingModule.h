@@ -13,8 +13,8 @@
  *  This module performs user defined computer vision operations on an image.
  */
 
-#ifndef INCLUDE_IMAGEPROCESSINGMODULE_H_
-#define INCLUDE_IMAGEPROCESSINGMODULE_H_
+#ifndef LANE_LINE_DETECTION_SYSTEM_INCLUDE_IMAGEPROCESSINGMODULE_H_
+#define LANE_LINE_DETECTION_SYSTEM_INCLUDE_IMAGEPROCESSINGMODULE_H_
 
 #include<iostream>
 #include<vector>
@@ -173,4 +173,4 @@ class ImageProcessingModule {
   int imagePoint1_, imagePoint2_, imagePoint3_, imagePoint4_;
 };
 
-#endif  //  INCLUDE_IMAGEPROCESSINGMODULE_H_
+#endif  //  LANE_LINE_DETECTION_SYSTEM_INCLUDE_IMAGEPROCESSINGMODULE_H_
