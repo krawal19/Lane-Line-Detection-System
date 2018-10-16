@@ -141,7 +141,7 @@ void LaneLineDetectionSystem::detectLaneLineForVideo(
       /// Storing output frame
       video.write(finalOutput);
       ++frameNumber;
-      if (cv::waitKey(0) >= 0)
+      if (cv::waitKey(45) >= 0)
         break;
     }
   }
