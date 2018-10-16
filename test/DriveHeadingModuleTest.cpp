@@ -14,12 +14,7 @@
  */
 
 #include <gtest/gtest.h>
-#include "../include/DriveHeadingModule.h"
-
-/**
- * @brief   Creating object for class DriveHeadingModule
- */
-DriveHeadingModule driveHeadCalculator;
+#include "DriveHeadingModule.h"
 
 /**
  * @brief   Checks setCentreLaneValue function in CameraModule
@@ -29,6 +24,7 @@ DriveHeadingModule driveHeadCalculator;
  * @param   setCentreLaneValueCheck Name of the test
  */
 TEST(DriveHeadingModuleTest, setCentreLaneValueCheck) {
+  DriveHeadingModule driveHeadCalculator;
   cv::Mat image = cv::imread("../test_images/test_image1.jpg",
                            CV_LOAD_IMAGE_COLOR);
   driveHeadCalculator.setCentreLaneValue(image);
@@ -43,6 +39,10 @@ TEST(DriveHeadingModuleTest, setCentreLaneValueCheck) {
  * @param   findDriveHeadingCheck Name of the test
  */
 TEST(DriveHeadingModuleTest, findDriveHeadingCheck) {
+  DriveHeadingModule driveHeadCalculator;
+  cv::Mat image = cv::imread("../test_images/test_image1.jpg",
+                           CV_LOAD_IMAGE_COLOR);
+  driveHeadCalculator.setCentreLaneValue(image);
   double error = (driveHeadCalculator.findDriveHeading(459, 513, 193, 900))
       / 0.00524;
   EXPECT_NEAR(36, error, 0.1);

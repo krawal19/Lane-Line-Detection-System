@@ -15,7 +15,7 @@
  */
 
 #include <gtest/gtest.h>
-#include "../include/CameraModule.h"
+#include "CameraModule.h"
 
 /**
  * @brief   Creating object for class CameraModule
@@ -41,6 +41,7 @@ TEST(CameraModuleTest, setImageCheck) {
  * @param   setVideoCheck Name of the test
  */
 TEST(CameraModuleTest, setVideoCheck) {
+  EXPECT_EQ(-1, frontCamera.setVideo(""));
   EXPECT_EQ(0, frontCamera.setVideo("../test_videos/test_video1.mp4"));
 }
 
@@ -52,8 +53,9 @@ TEST(CameraModuleTest, setVideoCheck) {
  * @param   getVideoCheck Name of the test
  */
 TEST(CameraModuleTest, getVideoCheck) {
-  cv::Mat frame = frontCamera.getVideo(0);
-  std::cout << frame.type();
+  cv::Mat frame = frontCamera.getVideo(1000);
+  EXPECT_EQ(1, frame.empty());
+  frame = frontCamera.getVideo(0);
   EXPECT_EQ(16, frame.type());  // changed
 }
 
