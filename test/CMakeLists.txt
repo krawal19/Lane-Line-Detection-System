@@ -11,9 +11,11 @@ add_executable(
     CameraModuleTest.cpp
     ImageProcessingModuleTest.cpp
     DriveHeadingModuleTest.cpp
+    LaneLineDetectionSystemTest.cpp
     ../app/CameraModule.cpp
     ../app/ImageProcessingModule.cpp
     ../app/DriveHeadingModule.cpp
+    ../app/LaneLineDetectionSystem.cpp
 )
 
 target_include_directories(cpp-test PUBLIC ../vendor/googletest/googletest/include 
