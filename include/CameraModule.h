@@ -71,7 +71,7 @@ class CameraModule {
    *
    *  @return stored video frame
    */
-  cv::Mat getVideo(int);
+  cv::Mat getVideo(const int);
 
  private:
   std::vector<cv::Mat> video_;
