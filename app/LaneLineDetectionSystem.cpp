@@ -38,7 +38,7 @@ LaneLineDetectionSystem::~LaneLineDetectionSystem() {
  *  @return void
  */
 void LaneLineDetectionSystem::detectLaneLineForImage(
-    const std::string &pathToImage) {
+    const std::string &pathToImage, const int showOutput) {
   if (camera_.setImage(pathToImage)) {
     cout << "Image could not be opened" << endl;
   } else {
@@ -78,7 +78,9 @@ void LaneLineDetectionSystem::detectLaneLineForImage(
     cv::namedWindow("Final Output", cv::WINDOW_AUTOSIZE);
     /// Putting text on frame
     cv::Mat finalOutput = imageProcessor_.generateImageWithText(image, value);
-    cv::imshow("New Image", finalOutput);
+    if(showOutput == 1){
+      cv::imshow("New Image", finalOutput);
+    }
     /// Storing output image
     cv::imwrite("../test_images_output/FinalOutput.jpg",  finalOutput);
     cv::waitKey(2000);
@@ -93,7 +95,7 @@ void LaneLineDetectionSystem::detectLaneLineForImage(
  *  @return  void
  */
 void LaneLineDetectionSystem::detectLaneLineForVideo(
-    const std::string &pathToVideo) {
+    const std::string &pathToVideo , const int showOutput) {
   if (camera_.setVideo(pathToVideo)) {
     cout << "Video could not be opened" << endl;
   } else {
@@ -139,12 +141,14 @@ void LaneLineDetectionSystem::detectLaneLineForVideo(
       cv::namedWindow("Final Output", cv::WINDOW_AUTOSIZE);
       /// Putting text on frame
       cv::Mat finalOutput = imageProcessor_.generateImageWithText(image, value);
-      cv::imshow("New Image", finalOutput);
       /// Storing output frame
       video.write(finalOutput);
-      ++frameNumber;
-      if (cv::waitKey(45) >= 0)
-        break;
+      ++frameNumber;      
+      if(showOutput == 1){
+        cv::imshow("New Image", finalOutput);
+        if (cv::waitKey(45) >= 0)
+          break;
+      }
     }
   }
 }

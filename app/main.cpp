@@ -31,11 +31,11 @@ int main() {
   cin >> inputInt;
   if (inputInt == 1) {  /// condition for image
     const std::string pathToImage = "../test_images/test_image1.jpg";
-  detectLaneLine.detectLaneLineForImage(pathToImage);
+  detectLaneLine.detectLaneLineForImage(pathToImage,1);
   } else {
   if (inputInt == 2) {  /// condition for video
     const std::string pathToVideo = "../test_videos/test_video1.mp4";
-  detectLaneLine.detectLaneLineForVideo(pathToVideo);
+  detectLaneLine.detectLaneLineForVideo(pathToVideo,1);
   } else {  /// Point to an error if Entry is invalid
     cout << "Entry not valid!" << endl;
   }

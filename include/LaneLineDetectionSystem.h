@@ -44,7 +44,7 @@ class LaneLineDetectionSystem {
    *
    *  @param  path to the image
    */
-  void detectLaneLineForImage(const std::string &);
+  void detectLaneLineForImage(const std::string &, const int);
 
   /**
    *  @brief  Detects lane line in a video of a car driving on
@@ -52,7 +52,7 @@ class LaneLineDetectionSystem {
    *
    *  @param  path to the video
    */
-  void detectLaneLineForVideo(const std::string &);
+  void detectLaneLineForVideo(const std::string &, const int);
 
  private:
   CameraModule camera_;
