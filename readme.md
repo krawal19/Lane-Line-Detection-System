@@ -170,7 +170,7 @@ The drive heading error is calculated from the points we recorded back in the dr
 float value = driveHeadingCalculator_.findDriveHeading(imageProcessor_.getImagePoint1(), imageProcessor_.getImagePoint2(), imageProcessor_.getImagePoint3(), imageProcessor_.getImagePoint4());
 ```   
 #### 9) Printing driving head error on the image
-Finally after calculating the error we need to put it on the weighted image and the following code snippet does that for you.
+Finally after calculating the error we need to put it on the weighted image and the following code snippet does that for you. A positve error means that the car is on the right hand side of the center of the lane and a negative error means that the car is on the left hand side of the center of the lane.
 ```
 imageProcessor_.generateImageWithText(image, value)
 ```
