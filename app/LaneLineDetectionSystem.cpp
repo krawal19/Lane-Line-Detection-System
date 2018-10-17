@@ -22,6 +22,7 @@ using std::endl;
  *  @brief   Constructs the object
  */
 LaneLineDetectionSystem::LaneLineDetectionSystem() {
+notWorking = 0;
 }
 
 /**
@@ -38,9 +39,10 @@ LaneLineDetectionSystem::~LaneLineDetectionSystem() {
  *  @return void
  */
 void LaneLineDetectionSystem::detectLaneLineForImage(
-    const std::string &pathToImage, const int showOutput) {
+    const std::string &pathToImage) {
   if (camera_.setImage(pathToImage)) {
     cout << "Image could not be opened" << endl;
+    notWorking = 1;
   } else {
     /// Getting image
     cv::Mat colorImage = camera_.getImage();
@@ -75,15 +77,16 @@ void LaneLineDetectionSystem::detectLaneLineForImage(
     float value = driveHeadingCalculator_.findDriveHeading(
         imageProcessor_.getImagePoint1(), imageProcessor_.getImagePoint2(),
         imageProcessor_.getImagePoint3(), imageProcessor_.getImagePoint4());
-    cv::namedWindow("Final Output", cv::WINDOW_AUTOSIZE);
     /// Putting text on frame
     cv::Mat finalOutput = imageProcessor_.generateImageWithText(image, value);
+<<<<<<< HEAD
+=======
     if (showOutput == 1) {
       cv::imshow("New Image", finalOutput);
     }
+>>>>>>> d836f8c7ec4648e8396cb0302ce109d153c5392f
     /// Storing output image
     cv::imwrite("../test_images_output/FinalOutput.jpg",  finalOutput);
-    cv::waitKey(2000);
   }
 }
 
@@ -95,9 +98,10 @@ void LaneLineDetectionSystem::detectLaneLineForImage(
  *  @return  void
  */
 void LaneLineDetectionSystem::detectLaneLineForVideo(
-    const std::string &pathToVideo , const int showOutput) {
+    const std::string &pathToVideo) {
   if (camera_.setVideo(pathToVideo)) {
     cout << "Video could not be opened" << endl;
+    notWorking = 1;
   } else {
     int frameNumber = 0;
     /// Saving video format
@@ -138,17 +142,11 @@ void LaneLineDetectionSystem::detectLaneLineForVideo(
       float value = driveHeadingCalculator_.findDriveHeading(
           imageProcessor_.getImagePoint1(), imageProcessor_.getImagePoint2(),
           imageProcessor_.getImagePoint3(), imageProcessor_.getImagePoint4());
-      cv::namedWindow("Final Output", cv::WINDOW_AUTOSIZE);
       /// Putting text on frame
       cv::Mat finalOutput = imageProcessor_.generateImageWithText(image, value);
       /// Storing output frame
       video.write(finalOutput);
       ++frameNumber;
-      if (showOutput == 1) {
-        cv::imshow("New Image", finalOutput);
-        if (cv::waitKey(45) >= 0)
-          break;
-      }
     }
   }
 }

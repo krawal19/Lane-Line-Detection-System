@@ -1,0 +1,402 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info.cleaned - app/ImageProcessingModule.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">app</a> - ImageProcessingModule.cpp<span style="font-size: 80%;"> (source / <a href="ImageProcessingModule.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info.cleaned</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">117</td>
+            <td class="headerCovTableEntry">117</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2018-10-16 21:35:13</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /**</a>
+<span class="lineNum">       2 </span>            :  *  @file    ImageProcessingModule.cpp
+<span class="lineNum">       3 </span>            :  *
+<span class="lineNum">       4 </span>            :  *  @author  Kapil Rawal(Driver)
+<span class="lineNum">       5 </span>            :  *           Hrishikesh Tawade(Navigator)
+<span class="lineNum">       6 </span>            :  *
+<span class="lineNum">       7 </span>            :  *  @copyright 3 Clause BSD License
+<span class="lineNum">       8 </span>            :  *
+<span class="lineNum">       9 </span>            :  *  @brief ENPM808X, Mid semester project
+<span class="lineNum">      10 </span>            :  *
+<span class="lineNum">      11 </span>            :  *  @section DESCRIPTION
+<span class="lineNum">      12 </span>            :  *
+<span class="lineNum">      13 </span>            :  *  This module performs user defined computer vision operations on an image.
+<span class="lineNum">      14 </span>            :  */
+<span class="lineNum">      15 </span>            : 
+<span class="lineNum">      16 </span>            : #include &quot;ImageProcessingModule.h&quot;
+<span class="lineNum">      17 </span>            : 
+<span class="lineNum">      18 </span>            : using cv::Mat;
+<span class="lineNum">      19 </span>            : using cv::Size;
+<span class="lineNum">      20 </span>            : using cv::Point;
+<span class="lineNum">      21 </span>            : using cv::Scalar;
+<span class="lineNum">      22 </span>            : using cv::Point2i;
+<span class="lineNum">      23 </span>            : using cv::FONT_HERSHEY_TRIPLEX;
+<span class="lineNum">      24 </span>            : using std::string;
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : 
+<span class="lineNum">      27 </span>            : /**
+<a name="28"><span class="lineNum">      28 </span>            :  * @brief   Constructs the object</a>
+<span class="lineNum">      29 </span>            :  */
+<span class="lineNum">      30 </span><span class="lineCov">         14 : ImageProcessingModule::ImageProcessingModule() {</span>
+<span class="lineNum">      31 </span><span class="lineCov">         14 :   imagePoint1_ = 0;  /// Assigning default value</span>
+<span class="lineNum">      32 </span><span class="lineCov">         14 :   imagePoint2_ = 0;  /// Assigning default value</span>
+<span class="lineNum">      33 </span><span class="lineCov">         14 :   imagePoint3_ = 0;  /// Assigning default value</span>
+<span class="lineNum">      34 </span><span class="lineCov">         14 :   imagePoint4_ = 0;  /// Assigning default value</span>
+<span class="lineNum">      35 </span><span class="lineCov">         14 : }</span>
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : /**
+<a name="38"><span class="lineNum">      38 </span>            :  * @brief   Destroys the object</a>
+<span class="lineNum">      39 </span>            :  */
+<span class="lineNum">      40 </span><span class="lineCov">         14 : ImageProcessingModule::~ImageProcessingModule() {</span>
+<span class="lineNum">      41 </span><span class="lineCov">         14 : }</span>
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span>            : /**
+<span class="lineNum">      44 </span>            :  * @brief   Applies the GrayScale filter on an input RGB image
+<span class="lineNum">      45 </span>            :  *
+<span class="lineNum">      46 </span>            :  * @param   colorImage The input color image.
+<span class="lineNum">      47 </span>            :  *
+<a name="48"><span class="lineNum">      48 </span>            :  * @return  GrayScale image</a>
+<span class="lineNum">      49 </span>            :  */
+<span class="lineNum">      50 </span><span class="lineCov">        220 : cv::Mat ImageProcessingModule::applyGrayScale(const cv::Mat colorImage) {</span>
+<span class="lineNum">      51 </span><span class="lineCov">        220 :   Mat GrayScaleimg;</span>
+<span class="lineNum">      52 </span>            :   /// Converts color image to gray scale image
+<span class="lineNum">      53 </span><span class="lineCov">        220 :   cvtColor(colorImage, GrayScaleimg, CV_RGB2GRAY);</span>
+<span class="lineNum">      54 </span>            : 
+<span class="lineNum">      55 </span><span class="lineCov">        220 :   return GrayScaleimg;</span>
+<span class="lineNum">      56 </span>            : }
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span>            : /**
+<span class="lineNum">      59 </span>            :  * @brief    Applies the GaussianBlur filter
+<span class="lineNum">      60 </span>            :  *
+<span class="lineNum">      61 </span>            :  * @param    nonBlurImage The input image to be blurred
+<span class="lineNum">      62 </span>            :  *
+<span class="lineNum">      63 </span>            :  * @param    kernel The kernel matrix dimensions
+<span class="lineNum">      64 </span>            :  *
+<a name="65"><span class="lineNum">      65 </span>            :  * @return   blurred image</a>
+<span class="lineNum">      66 </span>            :  */
+<span class="lineNum">      67 </span><span class="lineCov">        220 : cv::Mat ImageProcessingModule::applyGaussianBlur(const cv::Mat nonBlurImage,</span>
+<span class="lineNum">      68 </span>            :                                                  const int kernel) {
+<span class="lineNum">      69 </span><span class="lineCov">        440 :   Mat GaussianBlurimg = Mat::ones(nonBlurImage.rows, nonBlurImage.cols,</span>
+<span class="lineNum">      70 </span><span class="lineCov">        220 :                                   nonBlurImage.type());</span>
+<span class="lineNum">      71 </span>            :   /// Converts gray scale image to gaussian blur image
+<span class="lineNum">      72 </span><span class="lineCov">        440 :   GaussianBlur(nonBlurImage, GaussianBlurimg, Size(kernel, kernel), 0,</span>
+<span class="lineNum">      73 </span><span class="lineCov">        220 :                        0);</span>
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span><span class="lineCov">        220 :   return GaussianBlurimg;</span>
+<span class="lineNum">      76 </span>            : }
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span>            : /**
+<span class="lineNum">      79 </span>            :  * @brief   Applies the canny filter to an input image
+<span class="lineNum">      80 </span>            :  *
+<span class="lineNum">      81 </span>            :  * @param   nonCannyImage The input image on which canny filter
+<span class="lineNum">      82 </span>            :  *                        is to be applied
+<span class="lineNum">      83 </span>            :  *
+<span class="lineNum">      84 </span>            :  * @param   lowThreshold Canny filter's low threshold parameter
+<span class="lineNum">      85 </span>            :  *
+<span class="lineNum">      86 </span>            :  * @param   highThreshold Canny filter's high threshold parameter
+<span class="lineNum">      87 </span>            :  *
+<span class="lineNum">      88 </span>            :  * @param   kernel The kernel matrix dimensions
+<span class="lineNum">      89 </span>            :  *
+<a name="90"><span class="lineNum">      90 </span>            :  * @return  Image with applied Canny filter</a>
+<span class="lineNum">      91 </span>            :  */
+<span class="lineNum">      92 </span><span class="lineCov">        220 :   cv::Mat ImageProcessingModule::applyCanny(const cv::Mat nonCannyImage,</span>
+<span class="lineNum">      93 </span>            :                                             const double lowThreshold,
+<span class="lineNum">      94 </span>            :                                             const double highThreshold,
+<span class="lineNum">      95 </span>            :                                             const int kernel) {
+<span class="lineNum">      96 </span><span class="lineCov">        440 :   cv::Mat CannyImg = Mat::ones(nonCannyImage.rows, nonCannyImage.cols,</span>
+<span class="lineNum">      97 </span><span class="lineCov">        220 :                                nonCannyImage.type());</span>
+<span class="lineNum">      98 </span>            :   /// Converts a non canny image to canny image
+<span class="lineNum">      99 </span><span class="lineCov">        220 :   Canny(nonCannyImage, CannyImg, lowThreshold, highThreshold, kernel);</span>
+<span class="lineNum">     100 </span>            : 
+<span class="lineNum">     101 </span><span class="lineCov">        220 :   return CannyImg;</span>
+<span class="lineNum">     102 </span>            : }
+<span class="lineNum">     103 </span>            : 
+<span class="lineNum">     104 </span>            : /**
+<span class="lineNum">     105 </span>            :  * @brief   Masks the lane region in the image
+<span class="lineNum">     106 </span>            :  *
+<span class="lineNum">     107 </span>            :  * @param   cannyImage An image, preferably on which Canny filter
+<span class="lineNum">     108 </span>            :  *                     is applied
+<span class="lineNum">     109 </span>            :  *
+<a name="110"><span class="lineNum">     110 </span>            :  * @return  The masked region of interest</a>
+<span class="lineNum">     111 </span>            :  */
+<span class="lineNum">     112 </span><span class="lineCov">        220 : cv::Mat ImageProcessingModule::getRegionOfInterest(const cv::Mat cannyImage) {</span>
+<span class="lineNum">     113 </span><span class="lineCov">        440 :   Mat mask = Mat::zeros(cannyImage.rows, cannyImage.cols, CV_8UC1);</span>
+<span class="lineNum">     114 </span><span class="lineCov">        220 :   Point polygonPoints[1][20];</span>
+<span class="lineNum">     115 </span>            :   /// Get points with which the quadilater forms
+<span class="lineNum">     116 </span><span class="lineCov">        220 :   polygonPoints[0][0] = Point(0.08 * cannyImage.cols, cannyImage.rows);</span>
+<span class="lineNum">     117 </span><span class="lineCov">        220 :   polygonPoints[0][1] = Point(0.47 * cannyImage.cols, 0.6 * cannyImage.rows);</span>
+<span class="lineNum">     118 </span><span class="lineCov">        220 :   polygonPoints[0][2] = Point(0.55 * cannyImage.cols, 0.6 * cannyImage.rows);</span>
+<span class="lineNum">     119 </span><span class="lineCov">        220 :   polygonPoints[0][3] = Point(0.95 * cannyImage.cols, cannyImage.rows);</span>
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span><span class="lineCov">        220 :   const Point* ppt[1] = { polygonPoints[0] };</span>
+<span class="lineNum">     122 </span><span class="lineCov">        220 :   int npt[] = { 4 };</span>
+<span class="lineNum">     123 </span><span class="lineCov">        220 :   fillPoly(mask, ppt, npt, 1, Scalar(255));</span>
+<span class="lineNum">     124 </span><span class="lineCov">        220 :   Mat maskedimg;</span>
+<span class="lineNum">     125 </span><span class="lineCov">        220 :   bitwise_and(cannyImage, mask, maskedimg);</span>
+<span class="lineNum">     126 </span>            : 
+<span class="lineNum">     127 </span><span class="lineCov">        440 :   return maskedimg;</span>
+<span class="lineNum">     128 </span>            : }
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span>            : /**
+<span class="lineNum">     131 </span>            :  * @brief   Draws lines in an image, finds slopes and sets 4 points.
+<span class="lineNum">     132 </span>            :  *
+<span class="lineNum">     133 </span>            :  * @param   zerosImage A blank image to draw lines on
+<span class="lineNum">     134 </span>            :  *
+<span class="lineNum">     135 </span>            :  * @param   lines The vector of points containing coordinates of lines
+<span class="lineNum">     136 </span>            :  *                to be drawn
+<span class="lineNum">     137 </span>            :  *
+<span class="lineNum">     138 </span>            :  * @param   color The color of line
+<span class="lineNum">     139 </span>            :  *
+<span class="lineNum">     140 </span>            :  * @param   thickness The thickness of lane  line
+<span class="lineNum">     141 </span>            :  *
+<a name="142"><span class="lineNum">     142 </span>            :  * @return  Image with lines drawn of the given color and thickness</a>
+<span class="lineNum">     143 </span>            :  */
+<span class="lineNum">     144 </span><span class="lineCov">        220 :   cv::Mat ImageProcessingModule::getDrawLines(</span>
+<span class="lineNum">     145 </span>            :       cv::Mat zerosImage, const std::vector&lt;cv::Vec4i&gt; &amp;lines,
+<span class="lineNum">     146 </span>            :       const cv::Scalar color, const int thickness) {
+<span class="lineNum">     147 </span><span class="lineCov">        220 :   bool toggleLeft = true, toggleRight = true;</span>
+<span class="lineNum">     148 </span><span class="lineCov">        220 :   double leftLaneSlopeSum = 0, rightLaneSlopeSum = 0;</span>
+<span class="lineNum">     149 </span><span class="lineCov">        220 :   int leftLineCount = 0, rightLineCount = 0;</span>
+<span class="lineNum">     150 </span><span class="lineCov">        220 :   float highestY1Point = 0, highestX1Point = 0, lowestY1Point = 0,</span>
+<span class="lineNum">     151 </span><span class="lineCov">        220 :       lowestX1Point = 0, highestX2Point = 0, highestY2Point = 0, lowestY2Point =</span>
+<span class="lineNum">     152 </span><span class="lineCov">        220 :           0, lowestX2Point = 0;</span>
+<span class="lineNum">     153 </span><span class="lineCov">       2766 :   for (auto line : lines) {</span>
+<span class="lineNum">     154 </span><span class="lineCov">       2546 :     float x1 = line[0];</span>
+<span class="lineNum">     155 </span><span class="lineCov">       2546 :     float x2 = line[2];</span>
+<span class="lineNum">     156 </span><span class="lineCov">       2546 :     float y1 = line[1];</span>
+<span class="lineNum">     157 </span><span class="lineCov">       2546 :     float y2 = line[3];</span>
+<span class="lineNum">     158 </span><span class="lineCov">       2546 :     float slope = ((y1 - y2) * 1.0 / (x2 - x1));</span>
+<span class="lineNum">     159 </span>            : 
+<span class="lineNum">     160 </span><span class="lineCov">       2546 :     if (slope &lt; 0) {  /// calculating right side slope</span>
+<span class="lineNum">     161 </span><span class="lineCov">       1459 :       rightLaneSlopeSum += slope;</span>
+<span class="lineNum">     162 </span><span class="lineCov">       1459 :       ++rightLineCount;</span>
+<span class="lineNum">     163 </span>            :       /// locating points in the right region of interest
+<span class="lineNum">     164 </span><span class="lineCov">       1459 :       if ((zerosImage.rows - y2) &lt; (zerosImage.rows - y1)) {</span>
+<span class="lineNum">     165 </span><span class="lineCov">       1459 :         if (toggleRight) {</span>
+<span class="lineNum">     166 </span><span class="lineCov">        220 :           toggleRight = false;</span>
+<span class="lineNum">     167 </span><span class="lineCov">        220 :           highestY1Point = zerosImage.rows - y1;</span>
+<span class="lineNum">     168 </span><span class="lineCov">        220 :           highestX1Point = x1;</span>
+<span class="lineNum">     169 </span><span class="lineCov">        220 :           lowestY1Point = zerosImage.rows - y2;</span>
+<span class="lineNum">     170 </span><span class="lineCov">        220 :           lowestX1Point = x2;</span>
+<span class="lineNum">     171 </span>            :         } else {
+<span class="lineNum">     172 </span><span class="lineCov">       1239 :           if ((zerosImage.rows - y1) &gt; highestY1Point) {</span>
+<span class="lineNum">     173 </span><span class="lineCov">        172 :             highestY1Point = zerosImage.rows - y1;</span>
+<span class="lineNum">     174 </span><span class="lineCov">        172 :             highestX1Point = x1;</span>
+<span class="lineNum">     175 </span>            :           }
+<span class="lineNum">     176 </span>            :         }
+<span class="lineNum">     177 </span>            :       }
+<span class="lineNum">     178 </span>            :     } else {  /// calculating left side slope
+<span class="lineNum">     179 </span><span class="lineCov">       1087 :       leftLaneSlopeSum += slope;</span>
+<span class="lineNum">     180 </span><span class="lineCov">       1087 :       ++leftLineCount;</span>
+<span class="lineNum">     181 </span>            :       /// locating points in the left region of interest
+<span class="lineNum">     182 </span><span class="lineCov">       1087 :       if ((zerosImage.rows - y2) &gt; (zerosImage.rows - y1)) {</span>
+<span class="lineNum">     183 </span><span class="lineCov">       1087 :         if (toggleLeft) {</span>
+<span class="lineNum">     184 </span><span class="lineCov">        220 :           toggleLeft = 0;</span>
+<span class="lineNum">     185 </span><span class="lineCov">        220 :           highestY2Point = zerosImage.rows - y2;</span>
+<span class="lineNum">     186 </span><span class="lineCov">        220 :           highestX2Point = x2;</span>
+<span class="lineNum">     187 </span><span class="lineCov">        220 :           lowestY2Point = zerosImage.rows - y1;</span>
+<span class="lineNum">     188 </span><span class="lineCov">        220 :           lowestX2Point = x1;</span>
+<span class="lineNum">     189 </span>            :         } else {
+<span class="lineNum">     190 </span><span class="lineCov">        867 :           if ((zerosImage.rows - y2) &gt; highestY2Point) {</span>
+<span class="lineNum">     191 </span><span class="lineCov">        189 :             highestY2Point = zerosImage.rows - y2;</span>
+<span class="lineNum">     192 </span><span class="lineCov">        189 :             highestX2Point = x2;</span>
+<span class="lineNum">     193 </span>            :           }
+<span class="lineNum">     194 </span>            :         }
+<span class="lineNum">     195 </span>            :       }
+<span class="lineNum">     196 </span>            :     }
+<span class="lineNum">     197 </span>            :   }
+<span class="lineNum">     198 </span>            : 
+<span class="lineNum">     199 </span><span class="lineCov">        220 :   double leftLaneSlopeAvg = leftLaneSlopeSum * 1.0 / leftLineCount;</span>
+<span class="lineNum">     200 </span>            :   /// finding left line constant C
+<span class="lineNum">     201 </span><span class="lineCov">        220 :   double leftLaneC = lowestY2Point - lowestX2Point * leftLaneSlopeAvg;</span>
+<span class="lineNum">     202 </span><span class="lineCov">        220 :   double lowestPointLeftX = (0 - leftLaneC) / leftLaneSlopeAvg;</span>
+<span class="lineNum">     203 </span>            : 
+<span class="lineNum">     204 </span><span class="lineCov">        220 :   double rightLaneSlopeAvg = rightLaneSlopeSum * 1.0 / rightLineCount;</span>
+<span class="lineNum">     205 </span>            :   /// finding right line constant C
+<span class="lineNum">     206 </span><span class="lineCov">        220 :   double rightLaneC = lowestY1Point - lowestX1Point * rightLaneSlopeAvg;</span>
+<span class="lineNum">     207 </span><span class="lineCov">        220 :   double lowestPointRightX = (0 - rightLaneC) * 1.0 / rightLaneSlopeAvg;</span>
+<span class="lineNum">     208 </span>            :   /// Saving four X coordinates of region of interest to calculate drive heading
+<span class="lineNum">     209 </span>            :   Point2i rightLaneHigherPoint(highestX2Point,
+<span class="lineNum">     210 </span><span class="lineCov">        220 :                                zerosImage.rows - highestY2Point);</span>
+<span class="lineNum">     211 </span><span class="lineCov">        220 :   Point2i rightLaneLowerPoint(lowestPointLeftX, zerosImage.rows);</span>
+<span class="lineNum">     212 </span><span class="lineCov">        220 :   Point2i leftLaneHigherPoint(highestX1Point, zerosImage.rows - highestY1Point);</span>
+<span class="lineNum">     213 </span><span class="lineCov">        220 :   Point2i leftLaneLowerPoint(lowestPointRightX, zerosImage.rows);</span>
+<span class="lineNum">     214 </span>            : 
+<span class="lineNum">     215 </span><span class="lineCov">        220 :   imagePoint1_ = highestX2Point;</span>
+<span class="lineNum">     216 </span><span class="lineCov">        220 :   imagePoint2_ = highestX1Point;</span>
+<span class="lineNum">     217 </span><span class="lineCov">        220 :   imagePoint3_ = lowestPointLeftX;</span>
+<span class="lineNum">     218 </span><span class="lineCov">        220 :   imagePoint4_ = lowestPointRightX;</span>
+<span class="lineNum">     219 </span><span class="lineCov">        220 :   line(zerosImage, rightLaneHigherPoint, rightLaneLowerPoint, color, thickness);</span>
+<span class="lineNum">     220 </span><span class="lineCov">        220 :   line(zerosImage, leftLaneHigherPoint, leftLaneLowerPoint, color, thickness);</span>
+<span class="lineNum">     221 </span>            : 
+<span class="lineNum">     222 </span><span class="lineCov">        220 :   return zerosImage;</span>
+<span class="lineNum">     223 </span>            : }
+<span class="lineNum">     224 </span>            : 
+<span class="lineNum">     225 </span>            : /**
+<span class="lineNum">     226 </span>            :  * @brief   Finds Hough lines from the given image
+<span class="lineNum">     227 </span>            :  *
+<span class="lineNum">     228 </span>            :  * @param   maskedGrayImage The input image from which lines is to be found
+<span class="lineNum">     229 </span>            :  *
+<span class="lineNum">     230 </span>            :  * @param   rho The rho paramter of hough line filter
+<span class="lineNum">     231 </span>            :  *
+<span class="lineNum">     232 </span>            :  * @param   theta The theta paramter of hough line filter
+<span class="lineNum">     233 </span>            :  *
+<span class="lineNum">     234 </span>            :  * @param   threshold The threshold paramter of hough line filter
+<span class="lineNum">     235 </span>            :  *
+<span class="lineNum">     236 </span>            :  * @param   minLineLen The minimum line length paramter of hough line filter
+<span class="lineNum">     237 </span>            :  *
+<span class="lineNum">     238 </span>            :  * @param   maxLineGap The maximum line length paramter of hough line filter
+<span class="lineNum">     239 </span>            :  *
+<a name="240"><span class="lineNum">     240 </span>            :  * @return  A vector containing lines found in the image</a>
+<span class="lineNum">     241 </span>            :  */
+<span class="lineNum">     242 </span><span class="lineCov">        221 :   std::vector&lt;cv::Vec4i&gt; ImageProcessingModule::getHoughLines(</span>
+<span class="lineNum">     243 </span>            :       const cv::Mat maskedGrayImage, const int rho, const double theta,
+<span class="lineNum">     244 </span>            :       const int threshold, const int minLineLen, const int maxLineGap) {
+<span class="lineNum">     245 </span><span class="lineCov">        221 :   std::vector&lt;cv::Vec4i&gt; lines;</span>
+<span class="lineNum">     246 </span>            :   /// Converting masked gray image points into hough lines
+<span class="lineNum">     247 </span><span class="lineCov">        442 :   HoughLinesP(maskedGrayImage, lines, rho, theta, threshold, minLineLen,</span>
+<span class="lineNum">     248 </span><span class="lineCov">        221 :               maxLineGap);</span>
+<span class="lineNum">     249 </span>            : 
+<span class="lineNum">     250 </span><span class="lineCov">        221 :   return lines;</span>
+<span class="lineNum">     251 </span>            : }
+<span class="lineNum">     252 </span>            : 
+<span class="lineNum">     253 </span>            : /**
+<span class="lineNum">     254 </span>            :  * @brief   Merges two images in set proportions
+<span class="lineNum">     255 </span>            :  *
+<span class="lineNum">     256 </span>            :  * @param   newImage The image which is going to be in higher percentage
+<span class="lineNum">     257 </span>            :  *
+<span class="lineNum">     258 </span>            :  * @param   image The image which is going to be in lower percentage
+<span class="lineNum">     259 </span>            :  *
+<a name="260"><span class="lineNum">     260 </span>            :  * @param   Merged image</a>
+<span class="lineNum">     261 </span>            :  */
+<span class="lineNum">     262 </span><span class="lineCov">        220 : cv::Mat ImageProcessingModule::getWeightedImage(const cv::Mat newImage,</span>
+<span class="lineNum">     263 </span>            :                                                 const cv::Mat image) {
+<span class="lineNum">     264 </span><span class="lineCov">        220 :   const double a = 0.8;</span>
+<span class="lineNum">     265 </span><span class="lineCov">        220 :   const double b = 1.0;</span>
+<span class="lineNum">     266 </span><span class="lineCov">        220 :   const double c = 0.0;</span>
+<span class="lineNum">     267 </span><span class="lineCov">        220 :   Mat wetImage = Mat::ones(newImage.rows, newImage.cols, newImage.type());</span>
+<span class="lineNum">     268 </span>            :   /// Merges newImage on image
+<span class="lineNum">     269 </span><span class="lineCov">        220 :   addWeighted(newImage, a, image, b, c, wetImage);</span>
+<span class="lineNum">     270 </span>            : 
+<span class="lineNum">     271 </span><span class="lineCov">        220 :   return wetImage;</span>
+<span class="lineNum">     272 </span>            : }
+<span class="lineNum">     273 </span>            : 
+<span class="lineNum">     274 </span>            : /**
+<span class="lineNum">     275 </span>            :  * @brief   Puts text in an image corresponding to a given value
+<span class="lineNum">     276 </span>            :  *
+<span class="lineNum">     277 </span>            :  * @param   image The image on which text is  to be written
+<span class="lineNum">     278 </span>            :  *
+<span class="lineNum">     279 </span>            :  * @param   value The value which is to be written on the image
+<span class="lineNum">     280 </span>            :  *
+<a name="281"><span class="lineNum">     281 </span>            :  * @return  The image with text added</a>
+<span class="lineNum">     282 </span>            :  */
+<span class="lineNum">     283 </span><span class="lineCov">        220 : cv::Mat ImageProcessingModule::generateImageWithText(cv::Mat image,</span>
+<span class="lineNum">     284 </span>            :                                                      const float value) {
+<span class="lineNum">     285 </span><span class="lineCov">        440 :   string textToAdd = &quot;Heading Error = &quot; + std::to_string(value) + &quot; meter&quot;;</span>
+<span class="lineNum">     286 </span>            :   /// Adding text to image
+<span class="lineNum">     287 </span><span class="lineCov">        440 :   putText(image, textToAdd, cvPoint(30, 30), FONT_HERSHEY_TRIPLEX, 0.8,</span>
+<span class="lineNum">     288 </span><span class="lineCov">        660 :           cvScalar(0, 0, 0), 1);</span>
+<span class="lineNum">     289 </span><span class="lineCov">        440 :   return image;</span>
+<span class="lineNum">     290 </span>            : }
+<span class="lineNum">     291 </span>            : 
+<span class="lineNum">     292 </span>            : /**
+<span class="lineNum">     293 </span>            :  * @brief   Gives the value of a point stored during draw lines function
+<span class="lineNum">     294 </span>            :  *
+<a name="295"><span class="lineNum">     295 </span>            :  * @return  The value of a point 1</a>
+<span class="lineNum">     296 </span>            :  */
+<span class="lineNum">     297 </span><span class="lineCov">        220 : int ImageProcessingModule::getImagePoint1() {</span>
+<span class="lineNum">     298 </span><span class="lineCov">        220 :   return imagePoint1_;</span>
+<span class="lineNum">     299 </span>            : }
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span>            : /**
+<span class="lineNum">     302 </span>            :  * @brief   Gives the value of a point stored during draw lines function
+<span class="lineNum">     303 </span>            :  *
+<a name="304"><span class="lineNum">     304 </span>            :  * @return  The value of a point 2</a>
+<span class="lineNum">     305 </span>            :  */
+<span class="lineNum">     306 </span><span class="lineCov">        220 : int ImageProcessingModule::getImagePoint2() {</span>
+<span class="lineNum">     307 </span><span class="lineCov">        220 :   return imagePoint2_;</span>
+<span class="lineNum">     308 </span>            : }
+<span class="lineNum">     309 </span>            : 
+<span class="lineNum">     310 </span>            : /**
+<span class="lineNum">     311 </span>            :  * @brief   Gives the value of a point stored during draw lines function
+<span class="lineNum">     312 </span>            :  *
+<a name="313"><span class="lineNum">     313 </span>            :  * @return  The value of a point 3</a>
+<span class="lineNum">     314 </span>            :  */
+<span class="lineNum">     315 </span><span class="lineCov">        220 : int ImageProcessingModule::getImagePoint3() {</span>
+<span class="lineNum">     316 </span><span class="lineCov">        220 :   return imagePoint3_;</span>
+<span class="lineNum">     317 </span>            : }
+<span class="lineNum">     318 </span>            : 
+<span class="lineNum">     319 </span>            : /**
+<span class="lineNum">     320 </span>            :  * @brief   Gives the value of a point stored during draw lines function
+<span class="lineNum">     321 </span>            :  *
+<a name="322"><span class="lineNum">     322 </span>            :  * @return  The value of a point 4</a>
+<span class="lineNum">     323 </span>            :  */
+<a name="324"><span class="lineNum">     324 </span><span class="lineCov">        220 : int ImageProcessingModule::getImagePoint4() {</span></a>
+<span class="lineNum">     325 </span><span class="lineCov">        220 :   return imagePoint4_;</span>
+<span class="lineNum">     326 </span><span class="lineCov">          3 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
