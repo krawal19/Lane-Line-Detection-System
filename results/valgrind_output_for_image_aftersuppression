@@ -1,0 +1,27 @@
+valgrind --leak-check=full --show-reachable=yes --error-limit=no --gen-suppressions=all --suppressions=./minimal.supp  ./app/shell-app
+==16211== Memcheck, a memory error detector
+==16211== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==16211== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==16211== Command: ./app/shell-app
+==16211== 
+Enter '1' to detect lane line for image
+Enter '2' to detect lane line for video
+Enter Value: 1
+==16211== 
+==16211== HEAP SUMMARY:
+==16211==     in use at exit: 4,410,034 bytes in 26,777 blocks
+==16211==   total heap usage: 110,223 allocs, 83,446 frees, 3,401,336,959 bytes allocated
+==16211== 
+==16211== LEAK SUMMARY:
+==16211==    definitely lost: 0 bytes in 0 blocks
+==16211==    indirectly lost: 0 bytes in 0 blocks
+==16211==      possibly lost: 0 bytes in 0 blocks
+==16211==    still reachable: 0 bytes in 0 blocks
+==16211==                       of which reachable via heuristic:
+==16211==                         length64           : 7,880 bytes in 116 blocks
+==16211==                         newarray           : 2,112 bytes in 52 blocks
+==16211==                         multipleinheritance: 1,456 bytes in 1 blocks
+==16211==         suppressed: 4,084,634 bytes in 25,247 blocks
+==16211== 
+==16211== For counts of detected and suppressed errors, rerun with: -v
+==16211== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 53 from 53)
