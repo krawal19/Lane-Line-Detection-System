@@ -27,7 +27,7 @@
  */
 TEST(LaneLineDetectionSystemTest, detectLaneLineForImageCheck) {
   LaneLineDetectionSystem laneLineDetector;
-  laneLineDetector.detectLaneLineForImage("../test_images/test_image1.jpg",0);
+  laneLineDetector.detectLaneLineForImage("../test_images/test_image1.jpg", 0);
   cv::destroyAllWindows();
   EXPECT_EQ(
       0,
@@ -45,7 +45,7 @@ TEST(LaneLineDetectionSystemTest, detectLaneLineForImageCheck) {
  */
 TEST(LaneLineDetectionSystemTest, detectLaneLineForVideoCheck) {
   LaneLineDetectionSystem laneLineDetector;
-  laneLineDetector.detectLaneLineForVideo("../test_videos/test_video1.mp4",0);
+  laneLineDetector.detectLaneLineForVideo("../test_videos/test_video1.mp4", 0);
   cv::destroyAllWindows();
   cv::VideoCapture cap("../test_videos_output/final_video_output.avi");
   EXPECT_EQ(true, cap.isOpened());

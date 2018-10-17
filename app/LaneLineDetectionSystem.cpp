@@ -78,7 +78,7 @@ void LaneLineDetectionSystem::detectLaneLineForImage(
     cv::namedWindow("Final Output", cv::WINDOW_AUTOSIZE);
     /// Putting text on frame
     cv::Mat finalOutput = imageProcessor_.generateImageWithText(image, value);
-    if(showOutput == 1){
+    if (showOutput == 1) {
       cv::imshow("New Image", finalOutput);
     }
     /// Storing output image
@@ -143,8 +143,8 @@ void LaneLineDetectionSystem::detectLaneLineForVideo(
       cv::Mat finalOutput = imageProcessor_.generateImageWithText(image, value);
       /// Storing output frame
       video.write(finalOutput);
-      ++frameNumber;      
-      if(showOutput == 1){
+      ++frameNumber;
+      if (showOutput == 1) {
         cv::imshow("New Image", finalOutput);
         if (cv::waitKey(45) >= 0)
           break;
