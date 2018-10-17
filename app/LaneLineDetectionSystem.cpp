@@ -79,12 +79,6 @@ void LaneLineDetectionSystem::detectLaneLineForImage(
         imageProcessor_.getImagePoint3(), imageProcessor_.getImagePoint4());
     /// Putting text on frame
     cv::Mat finalOutput = imageProcessor_.generateImageWithText(image, value);
-<<<<<<< HEAD
-=======
-    if (showOutput == 1) {
-      cv::imshow("New Image", finalOutput);
-    }
->>>>>>> d836f8c7ec4648e8396cb0302ce109d153c5392f
     /// Storing output image
     cv::imwrite("../test_images_output/FinalOutput.jpg",  finalOutput);
   }

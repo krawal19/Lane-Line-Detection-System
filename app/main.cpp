@@ -30,7 +30,6 @@ int main() {
   int inputInt;
   cin >> inputInt;
   if (inputInt == 1) {  /// condition for image
-<<<<<<< HEAD
   const std::string pathToImage = "../test_images/test_image1.jpg";
   detectLaneLine.detectLaneLineForImage(pathToImage);
   cv::namedWindow("Final Output", cv::WINDOW_AUTOSIZE);
@@ -55,14 +54,6 @@ int main() {
      if (cv::waitKey(45) >= 0)
           break;
   }
-=======
-    const std::string pathToImage = "../test_images/test_image1.jpg";
-  detectLaneLine.detectLaneLineForImage(pathToImage, 1);
-  } else {
-  if (inputInt == 2) {  /// condition for video
-    const std::string pathToVideo = "../test_videos/test_video1.mp4";
-  detectLaneLine.detectLaneLineForVideo(pathToVideo, 1);
->>>>>>> d836f8c7ec4648e8396cb0302ce109d153c5392f
   } else {  /// Point to an error if Entry is invalid
     cout << "Entry not valid!" << endl;
   }
